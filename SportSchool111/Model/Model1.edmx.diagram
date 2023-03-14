@@ -4,17 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="44a7ceb76ef541d4a45cd11a7e73bf5b" Name="Diagram1">
-        <EntityTypeShape EntityType="user14Model.Attendance" Width="1.5" PointX="10.5" PointY="6.75" />
-        <EntityTypeShape EntityType="user14Model.Coaches" Width="1.5" PointX="8.25" PointY="10.375" />
-        <EntityTypeShape EntityType="user14Model.CompetingTeams" Width="1.5" PointX="3" PointY="7.375" />
-        <EntityTypeShape EntityType="user14Model.Competitions" Width="1.5" PointX="8.25" PointY="3" />
-        <EntityTypeShape EntityType="user14Model.Results" Width="1.5" PointX="10.5" PointY="3.125" />
-        <EntityTypeShape EntityType="user14Model.Schools" Width="1.5" PointX="0.75" PointY="7.375" />
-        <EntityTypeShape EntityType="user14Model.Sections" Width="1.5" PointX="6" PointY="7" />
-        <EntityTypeShape EntityType="user14Model.Students" Width="1.5" PointX="8.25" PointY="6.125" />
+      <Diagram DiagramId="44a7ceb76ef541d4a45cd11a7e73bf5b" Name="Diagram1" ZoomLevel="40">
+        <EntityTypeShape EntityType="user14Model.Attendance" Width="1.5" PointX="13.5" PointY="10.5" />
+        <EntityTypeShape EntityType="user14Model.Coaches" Width="1.5" PointX="8.25" PointY="5.25" />
+        <EntityTypeShape EntityType="user14Model.CompetingTeams" Width="1.5" PointX="3" PointY="7.5" />
+        <EntityTypeShape EntityType="user14Model.Competitions" Width="1.5" PointX="8.25" PointY="14" />
+        <EntityTypeShape EntityType="user14Model.Genders" Width="1.5" PointX="9" PointY="10.75" />
+        <EntityTypeShape EntityType="user14Model.Results" Width="1.5" PointX="10.5" PointY="14.125" />
+        <EntityTypeShape EntityType="user14Model.Schools" Width="1.5" PointX="0.75" PointY="7.5" />
+        <EntityTypeShape EntityType="user14Model.Sections" Width="1.5" PointX="6" PointY="7.125" />
+        <EntityTypeShape EntityType="user14Model.Students" Width="1.5" PointX="11.25" PointY="9.625" />
         <EntityTypeShape EntityType="user14Model.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="user14Model.Users" Width="1.5" PointX="10.5" PointY="9.75" />
+        <EntityTypeShape EntityType="user14Model.Users" Width="1.5" PointX="10.5" PointY="5.75" />
         <AssociationConnector Association="user14Model.FK_Attendance_Students" />
         <AssociationConnector Association="user14Model.FK_Coaches_Sections" />
         <AssociationConnector Association="user14Model.FK_Sections_Coaches" />
@@ -23,6 +24,7 @@
         <AssociationConnector Association="user14Model.FK_CompetingTeams_Schools" />
         <AssociationConnector Association="user14Model.FK_Competitions_Sections" />
         <AssociationConnector Association="user14Model.FK_Results_Competitions" />
+        <AssociationConnector Association="user14Model.FK_Students_Genders" />
         <AssociationConnector Association="user14Model.FK_Sections_Schools" />
         <AssociationConnector Association="user14Model.FK_Students_Sections" />
         <AssociationConnector Association="user14Model.FK_Users_Students" />

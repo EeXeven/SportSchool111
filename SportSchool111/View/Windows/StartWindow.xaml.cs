@@ -75,5 +75,21 @@ namespace SportSchool111.View.Windows
                 loginTextBox.Text = "";
             }
         }
+
+        private void loginTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (loginTextBox.Text == "Login")
+            {
+                loginTextBox.Text = "";
+            }
+        }
+
+        private void loginTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(loginTextBox.Text))
+            {
+                loginTextBox.Text = "Login";
+            }
+        }
     }
 }

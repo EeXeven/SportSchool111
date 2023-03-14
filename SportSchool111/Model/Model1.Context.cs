@@ -29,6 +29,7 @@ namespace SportSchool111.Model
         public virtual DbSet<Coaches> Coaches { get; set; }
         public virtual DbSet<CompetingTeams> CompetingTeams { get; set; }
         public virtual DbSet<Competitions> Competitions { get; set; }
+        public virtual DbSet<Genders> Genders { get; set; }
         public virtual DbSet<Results> Results { get; set; }
         public virtual DbSet<Schools> Schools { get; set; }
         public virtual DbSet<Sections> Sections { get; set; }

@@ -12,31 +12,18 @@ namespace SportSchool111.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Students
+    public partial class Genders
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Students()
+        public Genders()
         {
-            this.Attendance = new HashSet<Attendance>();
-            this.Users = new HashSet<Users>();
+            this.Students = new HashSet<Students>();
         }
     
-        public int student_id { get; set; }
-        public string FIO { get; set; }
-        public Nullable<int> gender { get; set; }
-        public Nullable<int> age { get; set; }
-        public Nullable<int> section_id { get; set; }
-        public string passport { get; set; }
-        public string policy { get; set; }
-        public string inn { get; set; }
-        public string snils { get; set; }
-        public string birth_certificate { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Attendance> Attendance { get; set; }
-        public virtual Genders Genders { get; set; }
-        public virtual Sections Sections { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Users> Users { get; set; }
+        public virtual ICollection<Students> Students { get; set; }
     }
 }

@@ -48,6 +48,13 @@
           <Property Name="competition_date" Type="date" />
           <Property Name="section_id" Type="int" />
         </EntityType>
+        <EntityType Name="Genders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="10" />
+        </EntityType>
         <EntityType Name="Results">
           <Key>
             <PropertyRef Name="result_id" />
@@ -82,7 +89,7 @@
           </Key>
           <Property Name="student_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FIO" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="gender" Type="varchar" MaxLength="10" />
+          <Property Name="gender" Type="int" />
           <Property Name="age" Type="int" />
           <Property Name="section_id" Type="int" />
           <Property Name="passport" Type="varchar" MaxLength="20" />
@@ -208,6 +215,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Students_Genders">
+          <End Role="Genders" Type="Self.Genders" Multiplicity="0..1" />
+          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Students_Sections">
           <End Role="Sections" Type="Self.Sections" Multiplicity="0..1" />
           <End Role="Students" Type="Self.Students" Multiplicity="*" />
@@ -249,6 +268,7 @@
           <EntitySet Name="Coaches" EntityType="Self.Coaches" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CompetingTeams" EntityType="Self.CompetingTeams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Competitions" EntityType="Self.Competitions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Genders" EntityType="Self.Genders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Results" EntityType="Self.Results" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Schools" EntityType="Self.Schools" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sections" EntityType="Self.Sections" Schema="dbo" store:Type="Tables" />
@@ -287,6 +307,10 @@
             <End Role="Schools" EntitySet="Schools" />
             <End Role="Sections" EntitySet="Sections" />
           </AssociationSet>
+          <AssociationSet Name="FK_Students_Genders" Association="Self.FK_Students_Genders">
+            <End Role="Genders" EntitySet="Genders" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
           <AssociationSet Name="FK_Students_Sections" Association="Self.FK_Students_Sections">
             <End Role="Sections" EntitySet="Sections" />
             <End Role="Students" EntitySet="Students" />
@@ -309,6 +333,7 @@
           <EntitySet Name="Coaches" EntityType="user14Model.Coaches" />
           <EntitySet Name="CompetingTeams" EntityType="user14Model.CompetingTeams" />
           <EntitySet Name="Competitions" EntityType="user14Model.Competitions" />
+          <EntitySet Name="Genders" EntityType="user14Model.Genders" />
           <EntitySet Name="Results" EntityType="user14Model.Results" />
           <EntitySet Name="Schools" EntityType="user14Model.Schools" />
           <EntitySet Name="Sections" EntityType="user14Model.Sections" />
@@ -346,6 +371,10 @@
           <AssociationSet Name="FK_Results_Competitions" Association="user14Model.FK_Results_Competitions">
             <End Role="Competitions" EntitySet="Competitions" />
             <End Role="Results" EntitySet="Results" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_Genders" Association="user14Model.FK_Students_Genders">
+            <End Role="Genders" EntitySet="Genders" />
+            <End Role="Students" EntitySet="Students" />
           </AssociationSet>
           <AssociationSet Name="FK_Sections_Schools" Association="user14Model.FK_Sections_Schools">
             <End Role="Schools" EntitySet="Schools" />
@@ -412,6 +441,14 @@
           <NavigationProperty Name="Sections" Relationship="user14Model.FK_Competitions_Sections" FromRole="Competitions" ToRole="Sections" />
           <NavigationProperty Name="Results" Relationship="user14Model.FK_Results_Competitions" FromRole="Competitions" ToRole="Results" />
         </EntityType>
+        <EntityType Name="Genders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Students" Relationship="user14Model.FK_Students_Genders" FromRole="Genders" ToRole="Students" />
+        </EntityType>
         <EntityType Name="Results">
           <Key>
             <PropertyRef Name="result_id" />
@@ -454,7 +491,7 @@
           </Key>
           <Property Name="student_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FIO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="Int32" />
           <Property Name="age" Type="Int32" />
           <Property Name="section_id" Type="Int32" />
           <Property Name="passport" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
@@ -463,6 +500,7 @@
           <Property Name="snils" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
           <Property Name="birth_certificate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Attendance" Relationship="user14Model.FK_Attendance_Students" FromRole="Students" ToRole="Attendance" />
+          <NavigationProperty Name="Genders" Relationship="user14Model.FK_Students_Genders" FromRole="Students" ToRole="Genders" />
           <NavigationProperty Name="Sections" Relationship="user14Model.FK_Students_Sections" FromRole="Students" ToRole="Sections" />
           <NavigationProperty Name="Users" Relationship="user14Model.FK_Users_Students" FromRole="Students" ToRole="Users" />
         </EntityType>
@@ -585,6 +623,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Students_Genders">
+          <End Type="user14Model.Genders" Role="Genders" Multiplicity="0..1" />
+          <End Type="user14Model.Students" Role="Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Sections_Schools">
           <End Type="user14Model.Schools" Role="Schools" Multiplicity="0..1" />
           <End Type="user14Model.Sections" Role="Sections" Multiplicity="*" />
@@ -621,7 +671,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -671,6 +721,14 @@
                 <ScalarProperty Name="competition_date" ColumnName="competition_date" />
                 <ScalarProperty Name="competition_name" ColumnName="competition_name" />
                 <ScalarProperty Name="competition_id" ColumnName="competition_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genders">
+            <EntityTypeMapping TypeName="user14Model.Genders">
+              <MappingFragment StoreEntitySet="Genders">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -6,14 +6,15 @@
         xmlns:local="clr-namespace:SportSchool111.View.Windows"
         mc:Ignorable="d"
         Title="Студент" WindowStartupLocation="CenterScreen"
-        Height="690" Width="1100" >
+        Height="580" Width="720" 
+        ResizeMode="NoResize">
     <Window.Background>
         <ImageBrush ImageSource="BackGrounds.png"/>
     </Window.Background>
 
     <Grid>
         <StackPanel>
-            <Grid Height="656">
+            <Grid Height="550">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
@@ -29,51 +30,56 @@
                 </Grid.RowDefinitions>
                 <!--TextBlock-->
                 <TextBlock Text="• Спортсмен"
-                    FontSize="24" Foreground="White" Grid.ColumnSpan="2" Margin="30,20,334,120" Grid.RowSpan="2"/>
+                    FontSize="24" Foreground="White" Margin="29,10,52,3"/>
                 <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center"
-                    Margin="148,-1,27,95" Height="102" Grid.RowSpan="2">
+                    Margin="33,-11,13,73" Height="102" Grid.RowSpan="2">
                     <Image Source="/Resours/Logo.png" Width="27" Margin="0,29,0,41" RenderTransformOrigin="0.5,0.5"/>
                     <TextBlock Text="Зеленоград" Foreground="White" FontSize="28" FontWeight="Regular" FontFamily="SF Pro Display" Margin="10" Height="54"/>
                 </StackPanel>
                 <TextBlock 
-            Grid.Row="5"
+            Grid.Row="4"
             Text="ГБУ «СШОР № 111»"
-                    FontSize="24" Foreground="#FFFFFF"  Grid.Column="2" Margin="133,2,1,5"/>
+                    FontSize="24" Foreground="#FFFFFF"  Grid.Column="2" Margin="9,116,2,8" Grid.RowSpan="2"/>
                 <!--TextBox-->
 
-                <TextBox Grid.Row="1" Grid.Column="0"
-                Text="{Binding Name}" Style="{StaticResource RoundedTextBox}" Margin="31,55,41,50" Height="Auto"/>
-                <TextBox Grid.Row="1" Grid.Column="1" 
-                 Text="{Binding Name}" Style="{StaticResource RoundedTextBox}" Margin="31,55,41,50" Height="Auto"/>
-                <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Name}" Style="{StaticResource RoundedTextBox}" Margin="31,55,41,50" Height="Auto"/>
+                <TextBox Grid.Row="1" Grid.Column="0" x:Name="textBoxFIO"
+                 Style="{StaticResource RoundedTextBox}"  Margin="26,44,23,45" Height="Auto"/>
+                <ComboBox Grid.Row="1" Grid.Column="1" x:Name="comboBoxGender" 
+                  Margin="26,44,23,45" Height="Auto"
+                          DisplayMemberPath="Name"/>
+                <TextBox  Grid.Row="1" Grid.Column="2" 
+                          Text="{Binding Name}" 
+                          Style="{StaticResource RoundedTextBox}"  Margin="31,44,41,48" Height="Auto" 
+                           Name="textBoxAge"    />
 
-                <TextBox Grid.Row="2" Grid.Column="0" Text="{Binding Name}" 
+                <TextBox Grid.Row="2" Grid.Column="0" 
                          Style="{StaticResource RoundedTextBox}"
-                         Margin="31,55,41,50" Height="Auto"/>
-                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Name}" 
+                           Margin="26,44,23,45" Height="Auto" Name="textBoxSectionId"/>
+                <TextBox Grid.Row="2" Grid.Column="1" 
                          Style="{StaticResource RoundedTextBox}"
-                         Margin="31,55,41,50" Height="Auto"/>
-                <TextBox Grid.Row="2" Grid.Column="2"  Text="{Binding Name}" 
+                           Margin="26,44,23,45" Height="Auto"
+                         Name="textBoxPassport"/>
+                <TextBox Grid.Row="2" Grid.Column="2"  
                          Style="{StaticResource RoundedTextBox}"
-                         Margin="31,55,41,50" Height="Auto"/>
+                           Margin="26,44,23,45" Height="Auto"
+                         Name="textBoxPolicy"/>
 
-                <TextBox Grid.Row="3" Grid.Column="0"  Text="{Binding Name}" 
+                <TextBox Grid.Row="3" Grid.Column="0"  
                          Style="{StaticResource RoundedTextBox}"
-                         Margin="31,55,41,50" Height="Auto"/>
-                <TextBox Grid.Row="3" Grid.Column="1"  Text="{Binding Name}" 
+                           Margin="26,44,23,45"  Height="Auto"
+                         Name="textBoxINN"/>
+                <TextBox Grid.Row="3" Grid.Column="1"  
                          Style="{StaticResource RoundedTextBox}"
-                         Margin="31,55,41,50" Height="Auto" />
-                <TextBox Grid.Row="3" Grid.Column="2"  Text="{Binding Name}" 
+                          Margin="26,44,23,45" Height="Auto" Name="textBoxSNILS" />
+                <TextBox Grid.Row="3" Grid.Column="2"   
                          Style="{StaticResource RoundedTextBox}"
-                         Margin="31,55,41,50" Height="Auto"/>
+                         Margin="26,44,23,45" Height="Auto" Name="textBoxBirthCertificate"/>
 
                 <!--Buttons-->
                 <Button  x:Name="ButtonAdd" Content="Добавить" 
-                Click="ButtonAdd_Click"  FontSize="24" Foreground="White"
-                Background="#0A6059" Margin="110,50,5,50" Grid.Row="4" Grid.Column="1" />
-                <Button  x:Name="ButtonRefresh" Content="Обновить"
-                Click="ButtonRefresh_Click"  FontSize="24" Foreground="White"
-                Background="#0A6059" Grid.Column="2" Margin="5,50,110,50" Grid.Row="4" />
+                Click="ButtonAdd_Click"  Style="{StaticResource RoundedButton}"  
+                         FontSize="24" 
+                 Margin="31,44,41,36" Grid.Row="4" Grid.Column="2" />
             </Grid>
         </StackPanel>
     </Grid>

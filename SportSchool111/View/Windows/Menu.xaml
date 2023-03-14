@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SportSchool111.View.Windows"
         mc:Ignorable="d"
-        Title="" WindowStartupLocation="CenterScreen" Height="690" Width="1100">
+        Title="" ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen" 
+        Height="690" Width="1100">
     <Window.Background>
         <ImageBrush ImageSource="BackGrounds.png"/>
     </Window.Background>
@@ -35,24 +37,20 @@
                     FontSize="24" Foreground="#FFFFFF"  Grid.Column="1" Margin="307,296,0,2" Grid.RowSpan="2"/>
         <!-- Buttons-->
         <Button x:Name="Tourmants" Content="Турниры" 
-                Margin="262,7,28,245" Grid.Row="2"
-                FontSize="24" Foreground="White"
-                Background="#0A6059"
+                Margin="253,15,21,221" Grid.Row="2"
+                FontSize="24" Style="{StaticResource RoundedButton}" 
                 Click="Tourmants_Click"/>
         <Button x:Name="Students" Content="Спортсмены" 
-                Margin="14,238,276,13" Grid.Row="1" Grid.Column="1"
-                FontSize="24" Foreground="White"
-                Background="#0A6059"
-                Click="Students_Click"/>
+                Margin="23,222,251,12" Grid.Row="1"
+                FontSize="24" Style="{StaticResource RoundedButton}" 
+                Click="Students_Click" Grid.Column="1"/>
         <Button x:Name="Coachs" Content="Тренера" 
-                Margin="260,240,30,11" Grid.Row="1"
-                FontSize="24" Foreground="White"
-                Background="#0A6059"
+                Margin="251,225,23,9" Grid.Row="1"
+                FontSize="24" Style="{StaticResource RoundedButton}" 
                 Click="Coachs_Click"/>
         <Button x:Name="Groups" Content="Группы" 
-                Margin="18,9,274,243" Grid.Row="2" Grid.Column="1"
-                FontSize="24" Foreground="White"
-                Background="#0A6059"
-                Click="Groups_Click"/>
+                Margin="26,12,252,224" Grid.Row="2"
+                FontSize="24" Style="{StaticResource RoundedButton}" 
+                Click="Groups_Click" Grid.Column="1"/>
     </Grid>
 </Window>

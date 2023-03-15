@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SportSchool111.View.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,11 +23,7 @@ namespace SportSchool111.View.Windows
         public WindowsStatic()
         {
             InitializeComponent();
-            Auto yourPage = new YourPage();
-            mainFrame.Navigate(yourPage);
-            // Переключение на другую страницу
-            AnotherPage anotherPage = new AnotherPage();
-            mainFrame.Navigate(anotherPage);
+            MainFrame.Content = new AuthPage();
         }
     }
 }

@@ -97,6 +97,7 @@
           <Property Name="inn" Type="varchar" MaxLength="12" />
           <Property Name="snils" Type="varchar" MaxLength="14" />
           <Property Name="birth_certificate" Type="varchar" MaxLength="20" />
+          <Property Name="Photo" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -499,6 +500,7 @@
           <Property Name="inn" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="snils" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
           <Property Name="birth_certificate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Attendance" Relationship="user14Model.FK_Attendance_Students" FromRole="Students" ToRole="Attendance" />
           <NavigationProperty Name="Genders" Relationship="user14Model.FK_Students_Genders" FromRole="Students" ToRole="Genders" />
           <NavigationProperty Name="Sections" Relationship="user14Model.FK_Students_Sections" FromRole="Students" ToRole="Sections" />
@@ -766,6 +768,7 @@
           <EntitySetMapping Name="Students">
             <EntityTypeMapping TypeName="user14Model.Students">
               <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="birth_certificate" ColumnName="birth_certificate" />
                 <ScalarProperty Name="snils" ColumnName="snils" />
                 <ScalarProperty Name="inn" ColumnName="inn" />

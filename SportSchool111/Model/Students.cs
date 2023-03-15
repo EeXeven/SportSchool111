@@ -31,6 +31,7 @@ namespace SportSchool111.Model
         public string inn { get; set; }
         public string snils { get; set; }
         public string birth_certificate { get; set; }
+        public byte[] Photo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Attendance> Attendance { get; set; }

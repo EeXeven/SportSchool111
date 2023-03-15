@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SportSchool111.View.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,16 +11,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SportSchool111.View.Windows
+namespace SportSchool111.View.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для Menu.xaml
+    /// Логика взаимодействия для MenuPage.xaml
     /// </summary>
-    public partial class Menu : Window
+    public partial class MenuPage : Page
     {
-        public Menu()
+        public MenuPage()
         {
             InitializeComponent();
         }
@@ -31,9 +33,9 @@ namespace SportSchool111.View.Windows
 
         private void Students_Click(object sender, RoutedEventArgs e)
         {
-            StudentsAdd students = new StudentsAdd();
-            students.Show();
-            Close();
+            NavigationService.Navigate(new StudentsPage());
+           
+           
         }
 
         private void Coachs_Click(object sender, RoutedEventArgs e)
@@ -44,6 +46,12 @@ namespace SportSchool111.View.Windows
         private void Groups_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Students_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            StudentsAdd students = new StudentsAdd();
+            students.Show();
         }
     }
 }

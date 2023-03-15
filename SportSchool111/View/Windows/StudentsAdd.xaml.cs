@@ -1,8 +1,10 @@
-﻿using SportSchool111.AppData;
+﻿using Microsoft.Win32;
+using SportSchool111.AppData;
 using SportSchool111.Model;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,6 +42,10 @@ namespace SportSchool111.View.Windows
         {
             // Код для добавления записи в базу данных
 
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.ShowDialog();
+
+
             Students students = new Students()
             {
                 FIO = textBoxFIO.Text,
@@ -51,8 +57,9 @@ namespace SportSchool111.View.Windows
                 policy = textBoxPolicy.Text,
                 inn = textBoxINN.Text,
                 snils = textBoxSNILS.Text,
-                birth_certificate = textBoxBirthCertificate.Text
-            };
+                birth_certificate = textBoxBirthCertificate.Text,
+                Photo = File.ReadAllBytes(openFileDialog.FileName)
+        };
 
             // Сохранение данных
             AppConnect.BD.Students.Add(students);

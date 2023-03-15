@@ -51,5 +51,10 @@ namespace SportSchool111.View.Pages
         {
 
         }
+
+        private void LwiewStudents_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
+        {
+
+        }
     }
 }

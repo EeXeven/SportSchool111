@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SportSchool111.View.Windows"
         mc:Ignorable="d"
-        Title=""   WindowStyle="None"
+        Title=""   ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen" 
         Height="690" Width="1100">
     <Window.Background>

@@ -66,5 +66,15 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <!--Label-->
+        <Style x:Key="StyleLabel" TargetType="{x:Type Label}">
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="FontFamily" Value="SF Pro Display" />
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Height" Value="30" />
+        </Style>
     </Application.Resources>
 </Application>

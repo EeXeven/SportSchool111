@@ -16,22 +16,21 @@
         </Grid.RowDefinitions>
         <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Введите название для поиска:" Width="175" TextAlignment="Right"></TextBlock>
-                <TextBox Width="225" Name="TboxSearch" TextChanged="TboxSearch_TextChanged"></TextBox>
+                <TextBlock Text="Введите название для поиска:" Width="175" TextAlignment="Right" Height="21"/>
+                <TextBox Width="225" x:Name="TboxSearch" TextChanged="TboxSearch_TextChanged" Height="24"/>
             </StackPanel>
-            
+
             <StackPanel>
                 <TextBlock Text="Выберите тип:" Width="90" TextAlignment="Right"></TextBlock>
                 <ComboBox Width="225" Name="ComboType" SelectionChanged="ComboType_SelectionChanged" DisplayMemberPath="Name"></ComboBox>
             </StackPanel>
         </WrapPanel>
 
-<!--ListView-->
-        
-        <ListView Margin="50" Name="LwiewStudents"
-                  ScrollViewer.CanContentScroll="False" ScrollViewer.VerticalScrollBarVisibility="Auto" 
-                  VerticalAlignment="Center" HorizontalAlignment="Center">
-            
+        <!--ListView-->
+
+        <ListView Margin="50" Name="LwiewStudents"  ScrollBar.Scroll="LwiewStudents_Scroll"
+ VerticalAlignment="Center" HorizontalAlignment="Center">
+
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"></WrapPanel>
@@ -39,7 +38,7 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Margin="20" Width="400">
+                    <Grid Margin="20" Width="300">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="70"></RowDefinition>
                             <RowDefinition Height="310"></RowDefinition>
@@ -64,6 +63,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        
+
     </Grid>
 </Page>

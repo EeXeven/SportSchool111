@@ -27,7 +27,11 @@ namespace SportSchool111.View.Windows
         public StudentsAdd()
         {
             InitializeComponent();
+            comboBoxGender.DisplayMemberPath = "Name";
             comboBoxGender.ItemsSource = AppConnect.BD.Genders.ToList();
+
+            CbSections.DisplayMemberPath = "section_name";
+            CbSections.ItemsSource = AppConnect.BD.Sections.ToList();
         }
 
 
@@ -49,10 +53,9 @@ namespace SportSchool111.View.Windows
             Students students = new Students()
             {
                 FIO = textBoxFIO.Text,
-
                 gender = ((Genders)comboBoxGender.SelectedItem).Id,
                 age = Convert.ToInt32(textBoxAge.Text),
-                section_id = Convert.ToInt32(textBoxSectionId.Text),
+                Sections = CbSections.SelectedItem as Model.Sections,
                 passport = textBoxPassport.Text,
                 policy = textBoxPolicy.Text,
                 inn = textBoxINN.Text,

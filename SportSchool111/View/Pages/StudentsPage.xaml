@@ -16,19 +16,20 @@
         </Grid.RowDefinitions>
         <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Введите название для поиска:" Width="175" TextAlignment="Right" Height="21"/>
+                <TextBlock 
+                  Foreground="White"  Text="Введите название для поиска:" Width="175" TextAlignment="Right" Height="21"/>
                 <TextBox Width="225" x:Name="TboxSearch" TextChanged="TboxSearch_TextChanged" Height="24"/>
             </StackPanel>
 
             <StackPanel>
-                <TextBlock Text="Выберите тип:" Width="90" TextAlignment="Right"></TextBlock>
+                <TextBlock Foreground="White" Text="Выберите тип:" Width="90" TextAlignment="Right"></TextBlock>
                 <ComboBox Width="225" Name="ComboType" SelectionChanged="ComboType_SelectionChanged" DisplayMemberPath="Name"></ComboBox>
             </StackPanel>
         </WrapPanel>
 
         <!--ListView-->
 
-        <ListView Margin="50" Name="LwiewStudents"  ScrollBar.Scroll="LwiewStudents_Scroll"
+        <ListView Margin="50" Name="LviewStudents"  ScrollBar.Scroll="LwiewStudents_Scroll"
  VerticalAlignment="Center" HorizontalAlignment="Center">
 
             <ListView.ItemsPanel>

@@ -55,9 +55,8 @@
                 <Label Style="{StaticResource StyleLabel}" 
                     Content="Секция" Margin="25,17,135,70"
                        Grid.Row="2"/>
-                <TextBox Grid.Row="2" Grid.Column="0" 
-                         Style="{StaticResource RoundedTextBox}"
-                           Margin="26,44,23,45" Height="Auto" Name="textBoxSectionId"/>
+                <ComboBox Grid.Row="2"  x:Name="CbSections" 
+                  Margin="26,44,23,45" Height="Auto"/>
                 <!--TbPassport-->
                 <Label Style="{StaticResource StyleLabel}" 
                     Content="Паспорт" Margin="25,17,128,70"

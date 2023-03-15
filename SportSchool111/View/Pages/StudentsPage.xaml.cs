@@ -25,8 +25,8 @@ namespace SportSchool111.View.Pages
         public StudentsPage()
         {
             InitializeComponent();
-            LwiewStudents.ItemsSource = AppConnect.BD.Students.ToList();
-
+            LviewStudents.ItemsSource = AppConnect.BD.Students.ToList();
+            
             ComboType.DisplayMemberPath = "section_name";
           
             ComboType.ItemsSource = AppData.AppConnect.BD.Sections.ToList();
@@ -46,11 +46,14 @@ namespace SportSchool111.View.Pages
         {
 
         }
-
+       
+        //Фильтрация(выборка) секций 
         private void ComboType_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+     
+        {         
+                int sectionId = ((Sections)ComboType.SelectedItem).section_id;
+                LviewStudents.ItemsSource = AppConnect.BD.Students.Where(s => s.section_id == sectionId).ToList();           
+        } 
 
         private void LwiewStudents_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
         {

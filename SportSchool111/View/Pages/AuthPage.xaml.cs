@@ -25,35 +25,36 @@ namespace SportSchool111.View.Pages
             InitializeComponent();
         }
 
-        private void loginTextBox_GotFocus(object sender, RoutedEventArgs e)
+
+
+        private void AuthLoginTbx_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (loginTextBox.Text == "Login")
+            if (AuthLoginTbx.Text == "Login")
             {
-                loginTextBox.Text = "";
+                AuthLoginTbx.Text = string.Empty;
             }
         }
 
-        private void loginTextBox_LostFocus(object sender, RoutedEventArgs e)
+        private void AuthLoginTbx_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(loginTextBox.Text))
+            if (string.IsNullOrWhiteSpace(AuthLoginTbx.Text))
             {
-                loginTextBox.Text = "Login";
+                AuthLoginTbx.Text = "Login";
             }
         }
 
-        private void loginTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void AuthPassPbx_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (loginTextBox.Text == "Введите логин")
+            if (AuthPassPbx.Text == "Password")
             {
-                loginTextBox.Text = "";
+                AuthPassPbx.Text = string.Empty;
             }
         }
-
-        private void LoginBth_Click(object sender, RoutedEventArgs e)
+        private void Auth(object sender, RoutedEventArgs e)
         {
-            if (!(string.IsNullOrWhiteSpace(loginTextBox.Text) || string.IsNullOrWhiteSpace(passwordBox.Password)))
+            if (!(string.IsNullOrWhiteSpace(AuthLoginTbx.Text) || string.IsNullOrWhiteSpace(AuthPassPbx.Text)))
             {
-                string awsd = AppData.AppConnect.BD.Users.First(i => i.username == loginTextBox.Text && i.password == passwordBox.Password)?.user_type;
+                string awsd = AppData.AppConnect.BD.Users.First(i => i.username == AuthLoginTbx.Text && i.password == AuthPassPbx.Text)?.user_type;
                 if (awsd != null)
                 {
                     // определение уровня доступа пользователя
@@ -63,31 +64,57 @@ namespace SportSchool111.View.Pages
                             // откройте страницу управления пользователями
                             NavigationService.Navigate(new MenuPage());
 
+                            //Закрытие Frame Auth
+                            NavigationService.RemoveBackEntry();
+
                             MessageBox.Show("Авторизация прошла успешно!");
 
+                            // Очистка TextBox
+                            AuthLoginTbx.Text = "";
+                            AuthPassPbx.Text = "";
                             break;
+                        default:
+                            // Восстановление значения TextBox из свойства Tag
+                            AuthLoginTbx.Text = AuthLoginTbx.Tag as string;
+                            AuthPassPbx.Text = AuthPassPbx.Tag as string;
+                            break;
+
+
                         case "coach":
                             // откройте страницу тренера
                             break;
                         case "student":
                             // откройте страницу ученика
                             break;
-
                     }
-
                 }
-
-
                 else
                 {
                     MessageBox.Show("Ошибка авторизации. Пожалуйста, проверьте свои учетные данные и повторите попытку.");
                 }
-
             }
             else
             {
                 MessageBox.Show("Ошибка авторизации. Пожалуйста, заполните все поля");
             }
         }
+
+    private void AuthPassPbx_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(AuthPassPbx.Text))
+            {
+                AuthPassPbx.Text = "Password";
+            }
+        }
+
+        private void AuthPassPbx_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                // вызываем метод для обработки события нажатия кнопки
+                Auth(sender, e);
+            }
+        }
     }
-    }
+}
+

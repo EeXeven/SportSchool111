@@ -22,6 +22,5 @@ namespace SportSchool111.Model
         public Nullable<int> student_id { get; set; }
     
         public virtual Coaches Coaches { get; set; }
-        public virtual Students Students { get; set; }
     }
 }

@@ -44,35 +44,49 @@ namespace SportSchool111.View.Windows
 
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
-            // Код для добавления записи в базу данных
-
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.ShowDialog();
-
-
-            Students students = new Students()
+            // Проверка заполнения всех полей 
+            if (string.IsNullOrWhiteSpace(textBoxFIO.Text) ||
+                comboBoxGender.SelectedItem == null ||
+                string.IsNullOrWhiteSpace(comboBoxGender.SelectedItem.ToString()) ||
+                string.IsNullOrWhiteSpace(textBoxAge.Text) ||
+                CbSections.SelectedItem == null ||
+                string.IsNullOrWhiteSpace(textBoxPassport.Text) ||
+                string.IsNullOrWhiteSpace(textBoxPolicy.Text) ||
+                string.IsNullOrWhiteSpace(textBoxINN.Text) ||
+                string.IsNullOrWhiteSpace(textBoxSNILS.Text))
             {
-                FIO = textBoxFIO.Text,
-                gender = ((Genders)comboBoxGender.SelectedItem).Id,
-                age = Convert.ToInt32(textBoxAge.Text),
-                Sections = CbSections.SelectedItem as Model.Sections,
-                passport = textBoxPassport.Text,
-                policy = textBoxPolicy.Text,
-                inn = textBoxINN.Text,
-                snils = textBoxSNILS.Text,
-                birth_certificate = textBoxBirthCertificate.Text,
-                Photo = File.ReadAllBytes(openFileDialog.FileName)
-        };
-
-            // Сохранение данных
-            AppConnect.BD.Students.Add(students);
-            AppConnect.BD.SaveChanges();
+                MessageBox.Show("Пожалуйста проверьте заполнение всех полей", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            // добавление записи в базу данных
+            else
+            {               
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.ShowDialog();
 
 
-            {
-                MessageBox.Show("Студент успешно добавлен в базу данных.");
+                Students students = new Students()
+                {
+                    FIO = textBoxFIO.Text,
+                    gender = ((Genders)comboBoxGender.SelectedItem).Id,
+                    age = Convert.ToInt32(textBoxAge.Text),
+                    Sections = CbSections.SelectedItem as Model.Sections,
+                    passport = textBoxPassport.Text,
+                    policy = textBoxPolicy.Text,
+                    inn = textBoxINN.Text,
+                    snils = textBoxSNILS.Text,
+                    birth_certificate = textBoxBirthCertificate.Text,
+                    Photo = File.ReadAllBytes(openFileDialog.FileName)
+                };
+
+                // Сохранение студента в базе данных
+
+                AppConnect.BD.Students.Add(students);
+                AppConnect.BD.SaveChanges();
+
+                MessageBox.Show("Студент успешно добавлен.");
             }
         }
     }
 }
+
 

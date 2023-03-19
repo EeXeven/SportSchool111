@@ -9,6 +9,6 @@ namespace SportSchool111.AppData
 {
     class AppConnect
     {
-        public static user14Entities BD = new user14Entities();
+        public static SchoolSportsProgramsEntities BD = new SchoolSportsProgramsEntities();
     }
 }

@@ -4,30 +4,29 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="44a7ceb76ef541d4a45cd11a7e73bf5b" Name="Diagram1" ZoomLevel="40">
-        <EntityTypeShape EntityType="user14Model.Attendance" Width="1.5" PointX="10.5" PointY="2.5" />
-        <EntityTypeShape EntityType="user14Model.Coaches" Width="1.5" PointX="8.25" PointY="13.125" />
-        <EntityTypeShape EntityType="user14Model.CompetingTeams" Width="1.5" PointX="3" PointY="7.5" />
-        <EntityTypeShape EntityType="user14Model.Competitions" Width="1.5" PointX="8.25" PointY="10" />
-        <EntityTypeShape EntityType="user14Model.Genders" Width="1.5" PointX="6" PointY="3.875" />
-        <EntityTypeShape EntityType="user14Model.Results" Width="1.5" PointX="10.5" PointY="10.125" />
-        <EntityTypeShape EntityType="user14Model.Schools" Width="1.5" PointX="0.75" PointY="7.5" />
-        <EntityTypeShape EntityType="user14Model.Sections" Width="1.5" PointX="6" PointY="7.125" />
-        <EntityTypeShape EntityType="user14Model.Students" Width="1.5" PointX="8.25" PointY="4.75" />
-        <EntityTypeShape EntityType="user14Model.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="user14Model.Users" Width="1.5" PointX="10.5" PointY="6.375" />
-        <AssociationConnector Association="user14Model.FK_Attendance_Students" />
-        <AssociationConnector Association="user14Model.FK_Coaches_Sections" />
-        <AssociationConnector Association="user14Model.FK_Sections_Coaches" />
-        <AssociationConnector Association="user14Model.FK_Users_Coaches" />
-        <AssociationConnector Association="user14Model.FK_CompetingTeams_Competitions" />
-        <AssociationConnector Association="user14Model.FK_CompetingTeams_Schools" />
-        <AssociationConnector Association="user14Model.FK_Competitions_Sections" />
-        <AssociationConnector Association="user14Model.FK_Results_Competitions" />
-        <AssociationConnector Association="user14Model.FK_Students_Genders" />
-        <AssociationConnector Association="user14Model.FK_Sections_Schools" />
-        <AssociationConnector Association="user14Model.FK_Students_Sections" />
-        <AssociationConnector Association="user14Model.FK_Users_Students" />
+      <Diagram DiagramId="fbfde3ac9c0549ffbdd2dab1eee0e3fa" Name="Diagram1">
+        <EntityTypeShape EntityType="SchoolSportsProgramsModel.Attendance" Width="1.5" PointX="9.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolSportsProgramsModel.Coaches" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolSportsProgramsModel.CompetingTeams" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolSportsProgramsModel.Competitions" Width="1.5" PointX="7.5" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolSportsProgramsModel.Genders" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolSportsProgramsModel.Results" Width="1.5" PointX="9.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolSportsProgramsModel.Schools" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolSportsProgramsModel.Sections" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolSportsProgramsModel.Students" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolSportsProgramsModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolSportsProgramsModel.Users" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
+        <AssociationConnector Association="SchoolSportsProgramsModel.FK_Attendance_Students" ManuallyRouted="false" />
+        <AssociationConnector Association="SchoolSportsProgramsModel.FK_Coaches_Genders" ManuallyRouted="false" />
+        <AssociationConnector Association="SchoolSportsProgramsModel.FK_Coaches_Sections" ManuallyRouted="false" />
+        <AssociationConnector Association="SchoolSportsProgramsModel.FK_Sections_Coaches" ManuallyRouted="false" />
+        <AssociationConnector Association="SchoolSportsProgramsModel.FK_Users_Coaches" ManuallyRouted="false" />
+        <AssociationConnector Association="SchoolSportsProgramsModel.FK_CompetingTeams_Schools" ManuallyRouted="false" />
+        <AssociationConnector Association="SchoolSportsProgramsModel.FK_Competitions_Sections" ManuallyRouted="false" />
+        <AssociationConnector Association="SchoolSportsProgramsModel.FK_Results_Competitions" ManuallyRouted="false" />
+        <AssociationConnector Association="SchoolSportsProgramsModel.FK_Students_Genders" ManuallyRouted="false" />
+        <AssociationConnector Association="SchoolSportsProgramsModel.FK_Sections_Schools" ManuallyRouted="false" />
+        <AssociationConnector Association="SchoolSportsProgramsModel.FK_Students_Sections" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

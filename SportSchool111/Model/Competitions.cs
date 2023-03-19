@@ -17,7 +17,6 @@ namespace SportSchool111.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Competitions()
         {
-            this.CompetingTeams = new HashSet<CompetingTeams>();
             this.Results = new HashSet<Results>();
         }
     
@@ -26,8 +25,6 @@ namespace SportSchool111.Model
         public Nullable<System.DateTime> competition_date { get; set; }
         public Nullable<int> section_id { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CompetingTeams> CompetingTeams { get; set; }
         public virtual Sections Sections { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Results> Results { get; set; }

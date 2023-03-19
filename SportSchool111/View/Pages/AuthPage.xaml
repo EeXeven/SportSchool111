@@ -5,48 +5,88 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SportSchool111.View.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="690" d:DesignWidth="1100"
+      d:DesignHeight="500" d:DesignWidth="500"
       Title="AuthPage">
 
-    <Grid >
-        <Grid Margin="452,162,348,133">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10,10,10,17" Height="68">
-                <Image Source="/Resours/Logo.png" Width="39" Height="40"/>
-                <TextBlock Text="Зеленоград" Foreground="White" FontSize="38" FontWeight="Medium" FontFamily="SF Pro Display" Margin="10" Height="54"/>
-            </StackPanel>
+    <Border CornerRadius="25">
+        <Border.Background>
+            <!--Градиент на фон-->
+            <LinearGradientBrush EndPoint="1.9,1" StartPoint="0.3,0.4">
+                <GradientStop Color="#FFE3E3E3"/>
+                <GradientStop Color="#FFBBBBBB" Offset="1.2"/>
+            </LinearGradientBrush>
 
-            <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10">
-                <TextBox BorderBrush="#1D716A" FontWeight="Regular" Text="Login" 
-                         VerticalAlignment="Center" TextAlignment="Center" 
-                         FontSize="32" Foreground="White"
-                         x:Name="loginTextBox" Background="#1D716A"
-                         Width="240"  Margin="5" TextChanged="loginTextBox_TextChanged"
-                         GotFocus="loginTextBox_GotFocus"
-                         LostFocus="loginTextBox_LostFocus"/>
-            </StackPanel>
-            <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="10">
-                <PasswordBox  VerticalAlignment="Center" 
-                         FontSize="32" Foreground="White"
-                    BorderBrush="#1D716A" Background="#1D716A"
-                    x:Name="passwordBox" Width="240" Margin="5"/>
-            </StackPanel>
-            <CheckBox Grid.Row="3" FontSize="9" VerticalContentAlignment="Center"  Foreground="White" Margin="10,10,6,10" Content="Запомнить меня">
-                <CheckBox.LayoutTransform>
-                    <ScaleTransform ScaleX="2" ScaleY="2"/>
-                </CheckBox.LayoutTransform>
-            </CheckBox>
-            <Button Name="LoginBth"
-                     Style="{StaticResource RoundedButton}"
-                    FontSize="24" Grid.Row="4" 
-                    Content="Войти" Margin="28,15,72,15"
-                    Click="LoginBth_Click"/>
+        </Border.Background>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="65*"/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0" CornerRadius="25 25 0 0" Background="#FF181349">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <!--<Image Source="/Resource/icon.png" Height="80" Width="80"/>-->
+                    <Label Content="Cloud Loft" FontSize="40"/>
+                </StackPanel>
+            </Border>
+
+            <Grid Grid.Row="1">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="20*"/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0" Margin="25 0" Height="60" CornerRadius="10"  Background="White">
+                    <StackPanel Orientation="Horizontal">
+                        <!--<Image Source="/Resource/Authorization/Login.png" Margin="2"/>-->
+                        <TextBox GotFocus="AuthLoginTbx_GotFocus" Name="AuthLoginTbx" Text="Login" LostFocus="AuthLoginTbx_LostFocus" Style="{StaticResource LoginTbx}"  Width="496"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Row="1" Margin="25 0" Height="60" CornerRadius="10"  Background="White">
+                    <StackPanel Orientation="Horizontal">
+                        <!--<Image Source="/Resource/Authorization/Password.png" Margin="2"/>-->
+                        <TextBox GotFocus="AuthPassPbx_GotFocus" 
+                                 KeyDown="AuthPassPbx_KeyDown"
+                                 LostFocus="AuthPassPbx_LostFocus"
+                                 Text="Password" Name="AuthPassPbx" Style="{StaticResource LoginTbx}" Width="495"/>
+                    </StackPanel>
+                </Border>
+
+                <!--<TextBox FontSize="30" Width="500" Height="50" Padding="50 0 0 0">
+                    <TextBox.Background>
+                        <ImageBrush ImageSource="/Resource/Client.png" AlignmentX="Left" AlignmentY="Center" Stretch="Uniform"/>
+                    </TextBox.Background>
+                    <TextBox.Background>
+                        <SolidColorBrush Color="White"/>
+                    </TextBox.Background>
+                </TextBox>-->
+
+                <!--<Border Grid.Row="0" Width="500" Height="50" CornerRadius="10"  Background="White">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition Width="540"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Source="/Resource/ClientMouseOver.png" />
+                        <TextBox VerticalContentAlignment="Center" Text="12334" FontSize="30" Background="Transparent" Grid.Column="1" Width="400" Height="auto"/>
+                    </Grid>
+                </Border>-->
+
+                <Button Grid.Row="2" Margin="25,17,25,10"  Height="60" Style="{StaticResource AuthAccBtn}" Click="Auth">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <!--<Image Source="/Resource/Authorization/AuthBtn.png" Height="30" Width="30"/>-->
+                            <Label Content="Войти" FontSize="25"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+
+            </Grid>
+
         </Grid>
-    </Grid>
+    </Border>
 </Page>

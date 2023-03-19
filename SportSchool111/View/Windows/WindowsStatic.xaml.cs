@@ -25,5 +25,10 @@ namespace SportSchool111.View.Windows
             InitializeComponent();
             MainFrame.Content = new AuthPage();
         }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

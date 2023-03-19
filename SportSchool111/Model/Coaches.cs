@@ -23,7 +23,7 @@ namespace SportSchool111.Model
     
         public int coach_id { get; set; }
         public string FIO { get; set; }
-        public string gender { get; set; }
+        public Nullable<int> gender { get; set; }
         public Nullable<int> age { get; set; }
         public Nullable<int> section_id { get; set; }
         public string passport { get; set; }
@@ -32,6 +32,7 @@ namespace SportSchool111.Model
         public string snils { get; set; }
         public string education { get; set; }
     
+        public virtual Genders Genders { get; set; }
         public virtual Sections Sections { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sections> Sections1 { get; set; }

@@ -19,7 +19,6 @@ namespace SportSchool111.Model
         public Nullable<int> school_id { get; set; }
         public string team_name { get; set; }
     
-        public virtual Competitions Competitions { get; set; }
         public virtual Schools Schools { get; set; }
     }
 }

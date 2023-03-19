@@ -5,16 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SportSchool111.View.Windows"
         mc:Ignorable="d"
-        Title="Студент" WindowStartupLocation="CenterScreen"
+        Title="Студент" WindowStartupLocation="CenterScreen" 
+        WindowStyle="None"
         Height="580" Width="720" 
         ResizeMode="NoResize">
+    
     <Window.Background>
         <ImageBrush ImageSource="BackGrounds.png"/>
     </Window.Background>
 
     <Grid>
         <StackPanel>
-            <Grid Height="550">
+            <Grid Height="583">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>

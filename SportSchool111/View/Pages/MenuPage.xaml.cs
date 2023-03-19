@@ -53,5 +53,15 @@ namespace SportSchool111.View.Pages
             StudentsAdd students = new StudentsAdd();
             students.Show();
         }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            WindowsStatic start = new WindowsStatic();       
+
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
+        }
     }
 }

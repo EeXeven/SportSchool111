@@ -18,7 +18,6 @@ namespace SportSchool111.Model
         public Students()
         {
             this.Attendance = new HashSet<Attendance>();
-            this.Users = new HashSet<Users>();
         }
     
         public int student_id { get; set; }
@@ -30,14 +29,12 @@ namespace SportSchool111.Model
         public string policy { get; set; }
         public string inn { get; set; }
         public string snils { get; set; }
-        public string birth_certificate { get; set; }
         public byte[] Photo { get; set; }
+        public string birth_certificate { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Attendance> Attendance { get; set; }
         public virtual Genders Genders { get; set; }
         public virtual Sections Sections { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Users> Users { get; set; }
     }
 }

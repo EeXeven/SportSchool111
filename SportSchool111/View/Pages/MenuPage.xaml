@@ -24,13 +24,13 @@
                     Margin="328,-8,10,239" Height="98" Grid.RowSpan="2">
             <TextBlock Text="• Главный экран"
                     FontSize="24" Foreground="White"/>
-            <Image Source="/Resours/Logo.png" Width="27" Margin="0,29,0,41"/>
+            <Image Source="/Resours/Finish.png" Width="27" Margin="0,29,0,41"/>
             <TextBlock Text="Зеленоград" Foreground="White" FontSize="28" FontWeight="Regular" FontFamily="SF Pro Display" Margin="10" Height="54"/>
         </StackPanel>
         <TextBlock 
-            Grid.Row="2"
-            Text="ГБУ «СШОР № 111»"
-                    FontSize="24" Foreground="#FFFFFF"  Grid.Column="1" Margin="307,296,0,2" Grid.RowSpan="2"/>
+            Grid.Row="3"
+            Text="ОЛИМПИЙСКИЕ РЕЗЕРВЫ"
+                    FontSize="20" Foreground="#575757"  Grid.Column="1" Margin="275,0,0,2"/>
         <!-- Buttons-->
         <Button x:Name="Tourmants" Content="Турниры" 
                 Margin="253,15,21,221" Grid.Row="2"

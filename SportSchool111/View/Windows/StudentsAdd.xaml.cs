@@ -63,7 +63,6 @@ namespace SportSchool111.View.Windows
                 OpenFileDialog openFileDialog = new OpenFileDialog();
                 openFileDialog.ShowDialog();
 
-
                 Students students = new Students()
                 {
                     FIO = textBoxFIO.Text,
@@ -77,14 +76,16 @@ namespace SportSchool111.View.Windows
                     birth_certificate = textBoxBirthCertificate.Text,
                     Photo = File.ReadAllBytes(openFileDialog.FileName)
                 };
-
                 // Сохранение студента в базе данных
-
                 AppConnect.BD.Students.Add(students);
                 AppConnect.BD.SaveChanges();
-
                 MessageBox.Show("Студент успешно добавлен.");
             }
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -63,12 +63,9 @@ namespace SportSchool111.View.Pages
                         case "admin":
                             // откройте страницу управления пользователями
                             NavigationService.Navigate(new MenuPage());
-
                             //Закрытие Frame Auth
                             NavigationService.RemoveBackEntry();
-
                             MessageBox.Show("Авторизация прошла успешно!");
-
                             // Очистка TextBox
                             AuthLoginTbx.Text = "";
                             AuthPassPbx.Text = "";
@@ -77,15 +74,7 @@ namespace SportSchool111.View.Pages
                             // Восстановление значения TextBox из свойства Tag
                             AuthLoginTbx.Text = AuthLoginTbx.Tag as string;
                             AuthPassPbx.Text = AuthPassPbx.Tag as string;
-                            break;
-
-
-                        case "coach":
-                            // откройте страницу тренера
-                            break;
-                        case "student":
-                            // откройте страницу ученика
-                            break;
+                            break;               
                     }
                 }
                 else
@@ -98,7 +87,6 @@ namespace SportSchool111.View.Pages
                 MessageBox.Show("Ошибка авторизации. Пожалуйста, заполните все поля");
             }
         }
-
     private void AuthPassPbx_LostFocus(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(AuthPassPbx.Text))

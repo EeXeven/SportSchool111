@@ -7,10 +7,9 @@
         mc:Ignorable="d"
         Title=""   ResizeMode="NoResize" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown"
         WindowStartupLocation="CenterScreen" 
-        Height="690" Width="1100">
-    <Window.Background>
-        <ImageBrush ImageSource="BackGrounds.png"/>
-    </Window.Background>
+        Height="500" Width="800"
+        >
+   
     <Grid>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
     </Grid>

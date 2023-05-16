@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Студент" WindowStartupLocation="CenterScreen" 
         WindowStyle="None"
-        Height="700" Width="920" 
+        Height="700" Width="800" 
         ResizeMode="NoResize">
 
     <Window.Background>
@@ -42,7 +42,7 @@
                 <TextBlock 
             Grid.Row="4"
             Text="ОЛИМПИЙСКИЕ РЕЗЕРВЫ»"
-                    FontSize="20" Foreground="#9A9A9A"  Grid.Column="1" Margin="236,121,6,11" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                    FontSize="20" Foreground="#9A9A9A"  Grid.Column="2" Margin="31,149,-96,-17" Grid.RowSpan="2"/>
                 <!--TbFio-->
                 <Label Style="{StaticResource StyleLabel}" 
                     Content="ФИО" Margin="29,9,131,110" Grid.Row="1"/>
@@ -78,24 +78,24 @@
                          Name="textBoxPolicy"/>
                 <!--TbINN-->
                 <Label Style="{StaticResource StyleLabel}" 
-                    Content="ИНН" Margin="25,17,135,70" Grid.Row="3" />
+                    Content="ИНН" Margin="30,27,131,92" Grid.Row="3" />
                 <TextBox Grid.Row="3" Grid.Column="0"  
                          Style="{StaticResource RoundedTextBox}"
-                           Margin="26,44,23,45"  Height="Auto"
+                           Margin="29,57,20,57"  Height="Auto"
                          Name="textBoxINN"/>
                 <!--TbSnils-->
                 <Label Style="{StaticResource StyleLabel}" 
-                    Content="Снилс" Margin="25,17,135,70" Grid.Row="3" Grid.Column="1"/>
+                    Content="Снилс" Margin="29,27,129,92" Grid.Row="3" Grid.Column="1"/>
                 <TextBox Grid.Row="3" Grid.Column="1"  
                          Style="{StaticResource RoundedTextBox}"
-                          Margin="26,44,23,45" Height="Auto" Name="textBoxSNILS" />
+                          Margin="29,57,18,57" Height="Auto" Name="textBoxSNILS" />
                 <!--TbBirthCertif-->
                 <Label Style="{StaticResource StyleLabel}" 
-                    Content="Свиделеьство о рождении" Margin="25,17,30,70"
+                    Content="Свиделеьство о рождении" Margin="31,15,26,95"
                        Grid.Row="3" Grid.Column="2"/>
                 <TextBox Grid.Row="3" Grid.Column="2"   
                          Style="{StaticResource RoundedTextBox}"
-                         Margin="26,44,23,45" Height="Auto" Name="textBoxBirthCertificate"/>
+                         Margin="31,57,19,57" Height="Auto" Name="textBoxBirthCertificate"/>
                 <Label Style="{StaticResource StyleLabel}" 
                     Content="Пол" Margin="27,9,130,110"
                        Grid.Row="1" Grid.Column="1"/>
@@ -107,10 +107,11 @@
                 Click="ButtonAdd_Click"  Style="{StaticResource RoundedButton}"  
                          FontSize="24" 
                  Margin="31,44,41,36" Grid.Row="4" Grid.Column="2" />
-                <Button  x:Name="Back" Content="Назад" 
-                    Click="Back_Click"  Style="{StaticResource RoundedButton}"  
-                    FontSize="24" 
-                    Margin="29,44,93,36" Grid.Row="4" />
+                <Button  x:Name="Back" Content="◀" 
+                    Click="Back_Click" 
+                         Style="{StaticResource RoundedButton}"  
+                    FontSize="50" 
+                    Margin="30,54,183,16" Grid.Row="4" />
             </Grid>
         </StackPanel>
     </Grid>

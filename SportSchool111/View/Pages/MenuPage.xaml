@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SportSchool111.View.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="690" d:DesignWidth="1100"
+      d:DesignHeight="500" d:DesignWidth="800"
       Title="MenuPage">
 
     <Grid>
@@ -20,38 +20,37 @@
             <RowDefinition Height="0.1*"/>
         </Grid.RowDefinitions>
         <!--TextBlock-->
-        <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center"
-                    Margin="328,-8,10,239" Height="98" Grid.RowSpan="2">
+        <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Top"
+                    Margin="140,0,10,0" Height="102" Grid.RowSpan="2">
+            <Image Source="/Resours/Finish.png" Width="61"/>
             <TextBlock Text="• Главный экран"
-                    FontSize="24" Foreground="White"/>
-            <Image Source="/Resours/Finish.png" Width="27" Margin="0,29,0,41"/>
-            <TextBlock Text="Зеленоград" Foreground="White" FontSize="28" FontWeight="Regular" FontFamily="SF Pro Display" Margin="10" Height="54"/>
+                    FontSize="24" Foreground="White" Height="37"/>
         </StackPanel>
         <TextBlock 
-            Grid.Row="3"
+            Grid.Row="2"
             Text="ОЛИМПИЙСКИЕ РЕЗЕРВЫ"
-                    FontSize="20" Foreground="#575757"  Grid.Column="1" Margin="275,0,0,2"/>
+                    FontSize="20" Foreground="#575757"  Grid.Column="1" Margin="136,188,10,0"/>
         <!-- Buttons-->
         <Button x:Name="Tourmants" Content="Турниры" 
-                Margin="253,15,21,221" Grid.Row="2"
+                Margin="146,147,54,32" Grid.Row="1"
                 FontSize="24" Style="{StaticResource RoundedButton}" 
                 Click="Tourmants_Click"/>
         <Button x:Name="Students" Content="Спортсмены" 
-                Margin="23,222,251,12" Grid.Row="1"
+                Margin="146,93,54,85" Grid.Row="1"
                 FontSize="24" Style="{StaticResource RoundedButton}" 
-                Click="Students_Click"  Grid.Column="1"/>
+                Click="Students_Click"/>
         <Button x:Name="Coachs" Content="Тренера" 
-                Margin="251,225,23,9" Grid.Row="1"
+                Margin="146,206,54,199" Grid.Row="1"
                 FontSize="24" Style="{StaticResource RoundedButton}" 
-                Click="Coachs_Click"/>
+                Click="Coachs_Click" Grid.RowSpan="2"/>
         <Button x:Name="Groups" Content="Группы" 
-                Margin="26,12,252,224" Grid.Row="2"
+                Margin="146,40,54,139" Grid.Row="2"
                 FontSize="24" Style="{StaticResource RoundedButton}" 
-                Click="Groups_Click"  Grid.Column="1"/>
+                Click="Groups_Click"/>
         <Button x:Name="Students_Copy" Content="Добавления студента" 
-            Margin="391,159,433,75" Grid.Row="2"
+            Margin="146,114,54,62" Grid.Row="2"
             FontSize="24" Style="{StaticResource RoundedButton}" 
-            Click="Students_Copy_Click" Grid.ColumnSpan="2"/>
+            Click="Students_Copy_Click"/>
         <Button x:Name="Exit" Content="Выход" 
             Margin="413,235,10,23" Grid.Row="2"
             FontSize="24" Style="{StaticResource RoundedButton}" 

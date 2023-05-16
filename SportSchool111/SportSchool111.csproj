@@ -353,9 +353,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resours\People.png" />
-    <Resource Include="View\Windows\BackGrounds.png" />
     <Resource Include="Resours\BackGrounds.png" />
-    <Resource Include="Resours\Logo.png" />
     <Resource Include="View\Windows\Окно авторизации.png" />
   </ItemGroup>
   <ItemGroup>
@@ -398,8 +396,9 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Resource Include="Resours\Finish.png" />
+    <Resource Include="View\Windows\BackGrounds.png" />
     <None Include="Resours\Logo" />
+    <Resource Include="Resours\Finish.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.4.0.2\build\Fody.targets" Condition="Exists('..\packages\Fody.4.0.2\build\Fody.targets')" />

@@ -3,7 +3,6 @@ using SportSchool111.AppData;
 using SportSchool111.Model;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -15,16 +14,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SportSchool111.View.Windows
+namespace SportSchool111.View.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для StudentsAdd.xaml
+    /// Логика взаимодействия для StudentsAddPages.xaml
     /// </summary>
-    public partial class StudentsAdd : Window
+    public partial class StudentsAddPages : Page
     {
-        public StudentsAdd()
+        public StudentsAddPages()
         {
             InitializeComponent();
             comboBoxGender.DisplayMemberPath = "Name";
@@ -32,14 +32,6 @@ namespace SportSchool111.View.Windows
 
             CbSections.DisplayMemberPath = "section_name";
             CbSections.ItemsSource = AppConnect.BD.Sections.ToList();
-        }
-
-
-
-        private void ButtonRefresh_Click(object sender, RoutedEventArgs e)
-        {
-            // Код для обновления записи в базе данных
-
         }
 
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
@@ -59,7 +51,7 @@ namespace SportSchool111.View.Windows
             }
             // добавление записи в базу данных
             else
-            {               
+            {
                 OpenFileDialog openFileDialog = new OpenFileDialog();
                 openFileDialog.ShowDialog();
 
@@ -82,12 +74,16 @@ namespace SportSchool111.View.Windows
                 MessageBox.Show("Студент успешно добавлен.");
             }
         }
+     
 
-        private void Back_Click(object sender, RoutedEventArgs e)
+        private void Backk_Click(object sender, RoutedEventArgs e)
         {
+            MenuPage menuPage = new MenuPage();
 
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
         }
     }
 }
-
-

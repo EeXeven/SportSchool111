@@ -42,7 +42,7 @@
                                           BeginTime="0:0:0"/>
                             <DoubleAnimation Storyboard.TargetName="B1"
                                              Storyboard.TargetProperty="Offset"
-                                             From="0.0" To="1.1"
+                                             From="0" To="1.1"
                                              AutoReverse="True"
                                              BeginTime="0:0:0"
                                              Duration="0:0:5"/>

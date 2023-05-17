@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.IO.Compression;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -52,40 +55,46 @@ namespace SportSchool111.View.Pages
         }
         private void Auth(object sender, RoutedEventArgs e)
         {
+            SoundPlayer player = new SoundPlayer(@"C:\Users\Sanya\Desktop\Not.wav");
+           player.Load();
+            player.Play();
+
+
+
             if (!(string.IsNullOrWhiteSpace(AuthLoginTbx.Text) || string.IsNullOrWhiteSpace(AuthPassPbx.Text)))
-            {
-                string awsd = AppData.AppConnect.BD.Users.First(i => i.username == AuthLoginTbx.Text && i.password == AuthPassPbx.Text)?.user_type;
-                if (awsd != null)
                 {
-                    // определение уровня доступа пользователя
-                    switch (awsd)
+                    string awsd = AppData.AppConnect.BD.Users.First(i => i.username == AuthLoginTbx.Text && i.password == AuthPassPbx.Text)?.user_type;
+                    if (awsd != null)
                     {
-                        case "admin":
-                            // откройте страницу управления пользователями
-                            NavigationService.Navigate(new MenuPage());
-                            //Закрытие Frame Auth
-                            NavigationService.RemoveBackEntry();
-                            MessageBox.Show("Авторизация прошла успешно!");
-                            // Очистка TextBox
-                            AuthLoginTbx.Text = "";
-                            AuthPassPbx.Text = "";
-                            break;
-                        default:
-                            // Восстановление значения TextBox из свойства Tag
-                            AuthLoginTbx.Text = AuthLoginTbx.Tag as string;
-                            AuthPassPbx.Text = AuthPassPbx.Tag as string;
-                            break;               
+                        // определение уровня доступа пользователя
+                        switch (awsd)
+                        {
+                            case "admin":
+                                // откройте страницу управления пользователями
+                                NavigationService.Navigate(new MenuPage());
+                                //Закрытие Frame Auth
+                                NavigationService.RemoveBackEntry();
+                                MessageBox.Show("Авторизация прошла успешно!");
+                                // Очистка TextBox
+                                AuthLoginTbx.Text = "";
+                                AuthPassPbx.Text = "";
+                                break;
+                            default:
+                                // Восстановление значения TextBox из свойства Tag
+                                AuthLoginTbx.Text = AuthLoginTbx.Tag as string;
+                                AuthPassPbx.Text = AuthPassPbx.Tag as string;
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ошибка авторизации. Пожалуйста, проверьте свои учетные данные и повторите попытку.");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Ошибка авторизации. Пожалуйста, проверьте свои учетные данные и повторите попытку.");
+                    MessageBox.Show("Ошибка авторизации. Пожалуйста, заполните все поля");
                 }
-            }
-            else
-            {
-                MessageBox.Show("Ошибка авторизации. Пожалуйста, заполните все поля");
-            }
         }
     private void AuthPassPbx_LostFocus(object sender, RoutedEventArgs e)
         {

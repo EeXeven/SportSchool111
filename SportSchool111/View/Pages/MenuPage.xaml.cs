@@ -50,13 +50,25 @@ namespace SportSchool111.View.Pages
 
         private void Students_Copy_Click(object sender, RoutedEventArgs e)
         {
-            StudentsAdd students = new StudentsAdd();
-            students.Show();
+            NavigationService.Navigate(new StudentsAddPages());
+
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             WindowsStatic start = new WindowsStatic();       
+
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
+        }
+
+       
+
+        private void ExitAcc_Click(object sender, RoutedEventArgs e)
+        {
+            AuthPage auth = new AuthPage();
 
             if (NavigationService.CanGoBack)
             {

@@ -41,9 +41,6 @@
     <Reference Include="Bunifu.Licensing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b, processorArchitecture=MSIL">
       <HintPath>..\packages\Bunifu.Licensing.5.0.0\lib\net40\Bunifu.Licensing.dll</HintPath>
     </Reference>
-    <Reference Include="Bunifu.UI.WinForms, Version=0.0.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.6.1.0\lib\net40\Bunifu.UI.WinForms.dll</HintPath>
-    </Reference>
     <Reference Include="Bunifu.UI.WinForms.1.5.3, Version=1.5.3.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
       <HintPath>..\packages\Bunifu.UI.WinForms.1.5.3.1.0.0\lib\net40\Bunifu.UI.WinForms.1.5.3.dll</HintPath>
     </Reference>
@@ -118,6 +115,7 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.IO.FileSystem.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.FileSystem.AccessControl.5.0.0\lib\net461\System.IO.FileSystem.AccessControl.dll</HintPath>
     </Reference>
@@ -304,14 +302,14 @@
     <Compile Include="View\Pages\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\StudentsAddPages.xaml.cs">
+      <DependentUpon>StudentsAddPages.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\StudentsPage.xaml.cs">
       <DependentUpon>StudentsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Windows\StartWindows.xaml.cs">
       <DependentUpon>StartWindows.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Windows\StudentsAdd.xaml.cs">
-      <DependentUpon>StudentsAdd.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Windows\WindowsStatic.xaml.cs">
       <DependentUpon>WindowsStatic.xaml</DependentUpon>
@@ -368,15 +366,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\StudentsAddPages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\StudentsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Windows\StartWindows.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Windows\StudentsAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -396,6 +394,9 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\Not.wav" />
+    <None Include="Resources\Void.wav" />
+    <Resource Include="Resours\1.png" />
     <Resource Include="View\Windows\BackGrounds.png" />
     <None Include="Resours\Logo" />
     <Resource Include="Resours\Finish.png" />

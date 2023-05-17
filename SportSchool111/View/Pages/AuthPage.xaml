@@ -9,24 +9,20 @@
       Title="AuthPage">
 
     <Border CornerRadius="25">
-        <Border.Background>
-            <!--Градиент на фон-->
-            <LinearGradientBrush EndPoint="1.9,1" StartPoint="0.3,0.4">
-                <GradientStop Color="#FFE3E3E3"/>
-                <GradientStop Color="#FFBBBBBB" Offset="1.2"/>
-            </LinearGradientBrush>
-
-        </Border.Background>
+        
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="35*"/>
                 <RowDefinition Height="65*"/>
             </Grid.RowDefinitions>
 
-            <Border Grid.Row="0" CornerRadius="25 25 0 0" Background="#FF181349">
+            <Border Grid.Row="0" CornerRadius="25 25 0 0">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                     <!--<Image Source="/Resource/icon.png" Height="80" Width="80"/>-->
-                    <Label Content="Cloud Loft" FontSize="40"/>
+                    <Label 
+                        Content="Олимпийские резервы"  Foreground="White"                       
+                       FontSize="40"
+                       FontFamily="Oldtimer"/>
                 </StackPanel>
             </Border>
 
@@ -38,14 +34,14 @@
                     <RowDefinition Height="20*"/>
                 </Grid.RowDefinitions>
 
-                <Border Grid.Row="0" Margin="25 0" Height="60" CornerRadius="10"  Background="White">
+                <Border Grid.Row="0" Margin="163,24,161,24" Height="60" CornerRadius="10"  Background="White">
                     <StackPanel Orientation="Horizontal">
                         <!--<Image Source="/Resource/Authorization/Login.png" Margin="2"/>-->
                         <TextBox GotFocus="AuthLoginTbx_GotFocus" Name="AuthLoginTbx" Text="Login" LostFocus="AuthLoginTbx_LostFocus" Style="{StaticResource LoginTbx}"  Width="496"/>
                     </StackPanel>
                 </Border>
 
-                <Border Grid.Row="1" Margin="25 0" Height="60" CornerRadius="10"  Background="White">
+                <Border Grid.Row="1" Margin="163,24,161,25" Height="60" CornerRadius="10"  Background="White">
                     <StackPanel Orientation="Horizontal">
                         <!--<Image Source="/Resource/Authorization/Password.png" Margin="2"/>-->
                         <TextBox GotFocus="AuthPassPbx_GotFocus" 
@@ -76,11 +72,17 @@
                     </Grid>
                 </Border>-->
 
-                <Button Grid.Row="2" Margin="25,17,25,10"  Height="60" Style="{StaticResource AuthAccBtn}" Click="Auth">
+                <Button Grid.Row="2" Margin="244,27,267,21"  Height="60" Style="{StaticResource AuthAccBtn}" Click="Auth">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFEC721B" Offset="0"/>
+                            <GradientStop Color="#FF848484" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
                     <Button.Content>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <!--<Image Source="/Resource/Authorization/AuthBtn.png" Height="30" Width="30"/>-->
-                            <Label Content="Войти" FontSize="25"/>
+                            <Label Content="Авторизация" FontSize="25"/>
                         </StackPanel>
                     </Button.Content>
                 </Button>

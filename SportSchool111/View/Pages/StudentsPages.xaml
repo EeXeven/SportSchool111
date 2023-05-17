@@ -1,11 +1,11 @@
-﻿<Page x:Class="SportSchool111.View.Pages.StudentsPage"
+﻿<Page x:Class="SportSchool111.View.Pages.StudentsPages"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SportSchool111.View.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="590" d:DesignWidth="1100"
+       d:DesignHeight="590" d:DesignWidth="1100"
       Title="StudentsPage"
       Loaded="Page_Loaded">
 
@@ -18,18 +18,18 @@
             <StackPanel Orientation="Horizontal">
                 <TextBlock 
                   Foreground="White"  Text="Введите название для поиска:" Width="175" TextAlignment="Right" Height="21"/>
-                <TextBox Width="225" x:Name="TboxSearch" TextChanged="TboxSearch_TextChanged" Height="24"/>
+                <TextBox Width="225" x:Name="TboxSearch" TextChanged="TboxSearch_TextChanged"  Height="24"/>
             </StackPanel>
 
             <StackPanel>
                 <TextBlock Foreground="White" Text="Выберите тип:" Width="90" TextAlignment="Right"></TextBlock>
-                <ComboBox Width="225" Name="ComboType" SelectionChanged="ComboType_SelectionChanged" DisplayMemberPath="Name"></ComboBox>
+                <ComboBox Width="225" Name="ComboType" SelectionChanged="ComboType_SelectionChanged"  DisplayMemberPath="Name"></ComboBox>
             </StackPanel>
         </WrapPanel>
 
         <!--ListView-->
 
-        <ListView Margin="50" Name="LviewStudents"  ScrollBar.Scroll="LwiewStudents_Scroll"
+        <ListView Margin="50" Name="LviewStudents"  ScrollBar.Scroll="LviewStudents_Scroll"
  VerticalAlignment="Center" HorizontalAlignment="Center">
 
             <ListView.ItemsPanel>

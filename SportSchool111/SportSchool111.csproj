@@ -124,8 +124,11 @@
     <Compile Include="View\Pages\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\StudentsPage.xaml.cs">
-      <DependentUpon>StudentsPage.xaml</DependentUpon>
+    <Compile Include="View\Pages\StudentsPages.xaml.cs">
+      <DependentUpon>StudentsPages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\AnimeWindows.xaml.cs">
+      <DependentUpon>AnimeWindows.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Windows\StudentsAdd.xaml.cs">
       <DependentUpon>StudentsAdd.xaml</DependentUpon>
@@ -169,10 +172,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resours\People.png" />
+    <Resource Include="Resours\uSERS.png" />
     <Resource Include="View\Windows\BackGrounds.png" />
     <Resource Include="Resours\BackGrounds.png" />
-    <Resource Include="Resours\Logo.png" />
     <Resource Include="View\Windows\Окно авторизации.png" />
   </ItemGroup>
   <ItemGroup>
@@ -187,7 +189,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\StudentsPage.xaml">
+    <Page Include="View\Pages\StudentsPages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows\AnimeWindows.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -211,6 +217,8 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resours\People.png" />
+    <None Include="Resours\Logo" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

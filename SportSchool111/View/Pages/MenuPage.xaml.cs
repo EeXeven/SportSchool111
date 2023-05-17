@@ -33,7 +33,7 @@ namespace SportSchool111.View.Pages
 
         private void Students_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new StudentsPage());
+            NavigationService.Navigate(new StudentsPages());
            
            
         }

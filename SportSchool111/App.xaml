@@ -2,7 +2,7 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:SportSchool111"
-             StartupUri="View/Windows/WindowsStatic.xaml">
+             StartupUri="View/Windows/AnimeWindows.xaml">
     <Application.Resources>
         <!--TextBox-->
         <Style x:Key="RoundedTextBox" TargetType="{x:Type TextBox}">

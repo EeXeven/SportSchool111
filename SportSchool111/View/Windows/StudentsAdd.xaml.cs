@@ -86,6 +86,11 @@ namespace SportSchool111.View.Windows
                 MessageBox.Show("Студент успешно добавлен.");
             }
         }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
 

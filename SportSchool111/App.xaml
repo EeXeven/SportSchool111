@@ -167,7 +167,7 @@
 
         <!--Кнопка авторизации в аккаунт-->
         <Style TargetType="Button" x:Key="AuthAccBtn">
-            <Setter Property="Background" Value="#FF5155E3"/>
+            <Setter Property="Background" Value="#E39B0D"/>
             <!--Создание нового шаблона кнопки-->
             <Setter Property="Template">
                 <Setter.Value>

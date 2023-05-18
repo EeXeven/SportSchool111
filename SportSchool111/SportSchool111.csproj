@@ -332,6 +332,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EntityDeploy Include="Model\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -351,7 +352,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resours\People.png" />
-    <Resource Include="Resours\BackGrounds.png" />
     <Resource Include="View\Windows\Окно авторизации.png" />
   </ItemGroup>
   <ItemGroup>
@@ -394,10 +394,12 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\pravila.wav" />
     <None Include="Resources\Not.wav" />
-    <None Include="Resources\Void.wav" />
+    <Resource Include="View\Windows\BackGround.png" />
+    <Resource Include="Resours\BackGround.png" />
+    <Resource Include="Resours\BackGrounds.png" />
     <Resource Include="Resours\1.png" />
-    <Resource Include="View\Windows\BackGrounds.png" />
     <None Include="Resours\Logo" />
     <Resource Include="Resours\Finish.png" />
   </ItemGroup>

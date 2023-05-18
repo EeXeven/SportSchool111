@@ -9,7 +9,7 @@
         WindowStartupLocation="CenterScreen" AllowsTransparency="True" >
 
     <Window.Background>
-        <ImageBrush ImageSource="BackGrounds.png"/>
+        <ImageBrush/>
     </Window.Background>
     
     <Grid>

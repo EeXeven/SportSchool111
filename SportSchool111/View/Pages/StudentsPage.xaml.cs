@@ -59,5 +59,20 @@ namespace SportSchool111.View.Pages
         {
 
         }
+
+        private void LviewStudents_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Backk_Click(object sender, RoutedEventArgs e)
+        {
+            MenuPage menuPage = new MenuPage();
+
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
+        }
     }
 }

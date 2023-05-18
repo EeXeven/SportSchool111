@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Media.Animation;
 
 namespace SportSchool111.View.Pages
 {
@@ -28,7 +29,7 @@ namespace SportSchool111.View.Pages
             InitializeComponent();
         }
 
-
+        
 
         private void AuthLoginTbx_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -36,6 +37,37 @@ namespace SportSchool111.View.Pages
             {
                 AuthLoginTbx.Text = string.Empty;
             }
+        }
+        private void NavigateToPage(Page page)
+        {
+            // Создайте анимацию фейда для текущей страницы
+            DoubleAnimation fadeOutAnimation = new DoubleAnimation
+            {
+                From = 1.0,
+                To = 0.0,
+                Duration = TimeSpan.FromSeconds(0.5)
+            };
+
+            // Обработчик события завершения анимации фейда
+            fadeOutAnimation.Completed += (sender, e) =>
+            {
+                // Установите новую страницу в `Frame`
+                mainFrame.Content = page;
+
+                // Создайте анимацию фейда для новой страницы
+                DoubleAnimation fadeInAnimation = new DoubleAnimation
+                {
+                    From = 0.0,
+                    To = 1.0,
+                    Duration = TimeSpan.FromSeconds(0.5)
+                };
+
+                // Запустите анимацию фейда для новой страницы
+                page.BeginAnimation(OpacityProperty, fadeInAnimation);
+            };
+
+            // Запустите анимацию фейда для текущей страницы
+            mainFrame.BeginAnimation(OpacityProperty, fadeOutAnimation);
         }
 
         private void AuthLoginTbx_LostFocus(object sender, RoutedEventArgs e)
@@ -59,6 +91,7 @@ namespace SportSchool111.View.Pages
            player.Load();
             player.Play();
 
+           
 
 
             if (!(string.IsNullOrWhiteSpace(AuthLoginTbx.Text) || string.IsNullOrWhiteSpace(AuthPassPbx.Text)))
@@ -95,6 +128,11 @@ namespace SportSchool111.View.Pages
                 {
                     MessageBox.Show("Ошибка авторизации. Пожалуйста, заполните все поля");
                 }
+             // Создайте экземпляр следующей страницы
+            MenuPage nextPage = new MenuPage();
+
+            // Вызовите метод для выполнения плавного перехода
+            NavigateToPage(nextPage);
         }
     private void AuthPassPbx_LostFocus(object sender, RoutedEventArgs e)
         {

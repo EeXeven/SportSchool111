@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SportSchool111.AppData;
+using System.ComponentModel;
 
 namespace SportSchool111.View.Pages
 {
@@ -44,7 +45,20 @@ namespace SportSchool111.View.Pages
 
         private void TboxSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
+            string searchText = TboxSearch.Text.ToLower(); // Получение текста поиска и приведение его к нижнему регистру
 
+            ICollectionView view = CollectionViewSource.GetDefaultView(LviewStudents.ItemsSource);
+            if (view != null)
+            {
+                view.Filter = item =>
+                {
+                    if (item is Students student)
+                    {
+                        return student.FIO.ToLower().Contains(searchText);
+                    }
+                    return false;
+                };
+            }
         }
        
         //Фильтрация(выборка) секций 

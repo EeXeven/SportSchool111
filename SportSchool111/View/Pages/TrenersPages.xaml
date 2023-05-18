@@ -1,4 +1,4 @@
-﻿<Page x:Class="SportSchool111.View.Pages.StudentsPage"
+﻿<Page x:Class="SportSchool111.View.Pages.TrenersPages"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,9 +6,8 @@
       xmlns:local="clr-namespace:SportSchool111.View.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="800"
-      Title="StudentsPage"
+      Title="TrenersPages"
       Loaded="Page_Loaded">
-
 
     <Page.Resources>
         <Style TargetType="ListView">
@@ -37,13 +36,13 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
-            <TextBlock FontSize="20" Grid.Column="0" Text="Спортсмен" VerticalAlignment="Center" TextAlignment="Right" Foreground="White" Margin="0,0,389,0" Grid.ColumnSpan="2" />
-            <TextBox Grid.Column="1" FontSize="20" x:Name="TboxSearch" TextChanged="TboxSearch_TextChanged" Height="30" BorderThickness="1" BorderBrush="White" Background="Transparent" Foreground="White" Margin="155,0,168,0" VerticalAlignment="Center" />
+            <TextBlock FontSize="20" Grid.Column="0" Text="Тренер" VerticalAlignment="Center" TextAlignment="Right" Foreground="White" Margin="0,0,389,0" Grid.ColumnSpan="2" />
+            <TextBox Grid.Column="1" FontSize="20" x:Name="TboxSearch" TextChanged="TboxSearch_TextChanged"  Height="30" BorderThickness="1" BorderBrush="White" Background="Transparent" Foreground="White" Margin="155,0,183,0" VerticalAlignment="Center" />
 
-            <ComboBox Grid.Column="3" Width="225" Name="ComboType" SelectionChanged="ComboType_SelectionChanged" DisplayMemberPath="Name" Background="Transparent"  />
+            <ComboBox Grid.Column="3" Width="225" Name="ComboType" SelectionChanged="ComboType_SelectionChanged"  DisplayMemberPath="Name" Background="Transparent"  />
         </Grid>
 
-        <ListView Grid.Row="1" Margin="50" Name="LviewStudents" ScrollBar.Scroll="LwiewStudents_Scroll" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <ListView Grid.Row="1" Margin="50" Name="LviewStudents" ScrollBar.Scroll="LviewStudents_Scroll"  VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="Foreground" Value="White" />

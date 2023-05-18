@@ -308,6 +308,9 @@
     <Compile Include="View\Pages\StudentsPage.xaml.cs">
       <DependentUpon>StudentsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\TrenersPages.xaml.cs">
+      <DependentUpon>TrenersPages.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Windows\StartWindows.xaml.cs">
       <DependentUpon>StartWindows.xaml</DependentUpon>
     </Compile>
@@ -351,7 +354,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resours\People.png" />
     <Resource Include="View\Windows\Окно авторизации.png" />
   </ItemGroup>
   <ItemGroup>
@@ -371,6 +373,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\StudentsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\TrenersPages.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -394,6 +400,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resours\People.png" />
     <None Include="Resources\pravila.wav" />
     <None Include="Resources\Not.wav" />
     <Resource Include="View\Windows\BackGround.png" />

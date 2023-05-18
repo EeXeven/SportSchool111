@@ -40,7 +40,7 @@ namespace SportSchool111.View.Pages
 
         private void Coachs_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new TrenersPages());
         }
 
         private void Groups_Click(object sender, RoutedEventArgs e)

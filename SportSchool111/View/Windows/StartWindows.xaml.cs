@@ -27,6 +27,7 @@ namespace SportSchool111.View.Windows
             InitializeComponent();
 
             SoundPlayer player = new SoundPlayer(@"C:\Users\Sanya\Desktop\pravila.wav");
+            //SoundPlayer player = new SoundPlayer(@"C:\Users\Sanya\Desktop\Rik.wav");
             player.Load();
             player.Play();
 

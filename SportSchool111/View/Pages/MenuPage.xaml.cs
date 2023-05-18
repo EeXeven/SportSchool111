@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -33,6 +34,9 @@ namespace SportSchool111.View.Pages
 
         private void Students_Click(object sender, RoutedEventArgs e)
         {
+            SoundPlayer player = new SoundPlayer(@"C:\Users\Sanya\Downloads\click.wav");
+            player.Load();
+            player.Play();
             NavigationService.Navigate(new StudentsPage());
            
            
@@ -40,6 +44,9 @@ namespace SportSchool111.View.Pages
 
         private void Coachs_Click(object sender, RoutedEventArgs e)
         {
+            SoundPlayer player = new SoundPlayer(@"C:\Users\Sanya\Downloads\click.wav");
+            player.Load();
+            player.Play();
             NavigationService.Navigate(new TrenersPages());
         }
 
@@ -48,14 +55,13 @@ namespace SportSchool111.View.Pages
 
         }
 
-        private void Students_Copy_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new StudentsAddPages());
-
-        }
+      
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
+            SoundPlayer player = new SoundPlayer(@"C:\Users\Sanya\Downloads\click.wav");
+            player.Load();
+            player.Play();
             WindowsStatic start = new WindowsStatic();       
 
             if (NavigationService.CanGoBack)
@@ -68,12 +74,20 @@ namespace SportSchool111.View.Pages
 
         private void ExitAcc_Click(object sender, RoutedEventArgs e)
         {
+            SoundPlayer player = new SoundPlayer(@"C:\Users\Sanya\Downloads\click.wav");
+            player.Load();
+            player.Play();
             AuthPage auth = new AuthPage();
 
             if (NavigationService.CanGoBack)
             {
                 NavigationService.GoBack();
             }
+        }
+
+        private void Settings_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

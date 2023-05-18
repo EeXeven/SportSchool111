@@ -1,4 +1,4 @@
-﻿<Page x:Class="SportSchool111.View.Pages.StudentsAddPages"
+﻿<Page x:Class="SportSchool111.View.Pages.AddCoaches"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:SportSchool111.View.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="800"
-      Title="StudentsAddPages">
+      Title="AddCoaches">
 
     <Grid>
         <StackPanel>
@@ -25,13 +25,15 @@
                     <RowDefinition Height="0.3*"/>
                 </Grid.RowDefinitions>
                 <!--TextBlock-->
-                <TextBlock Text="Спортсмен"
+                <TextBlock Text="Тренер"
                     FontSize="26" Foreground="White" Margin="109,17,18,94" Grid.RowSpan="2" Grid.Column="1"/>
                 <StackPanel  Orientation="Horizontal" VerticalAlignment="Top" Margin="22,1,265,0" Height="60" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2"
                     >
                     <Image Source="/Resours/1.png" Width="70" RenderTransformOrigin="0.5,0.5" Height="84"/>
                 </StackPanel>
-                    <TextBlock  Grid.Row="5" Text="«ОЛИМПИЙСКИЕ РЕЗЕРВЫ»"
+                <TextBlock 
+            Grid.Row="5"
+            Text="«ОЛИМПИЙСКИЕ РЕЗЕРВЫ»"
                     FontSize="14" Foreground="#9A9A9A"  Grid.Column="2" Margin="39,1,0,0"/>
                 <!--TbFio-->
                 <Label Style="{StaticResource StyleLabel}" 
@@ -81,16 +83,16 @@
                           Margin="18,63,31,12" Height="Auto" Name="textBoxSNILS" />
                 <!--TbBirthCertif-->
                 <Label Style="{StaticResource StyleLabel}" 
-                    Content="Свиделеьство о рождении" Margin="18,32,10,41"
+                    Content="Оброзование" Margin="18,32,10,41"
                        Grid.Row="3" Grid.Column="2"/>
                 <TextBox Grid.Row="3" Grid.Column="2"   
                          Style="{StaticResource RoundedTextBox}"
-                         Margin="18,63,23,12" Height="Auto" Name="textBoxBirthCertificate"/>
+                         Margin="18,63,23,12" Height="Auto" Name="textBoxEducation"/>
+                <!--Ламинат-->
                 <Label Style="{StaticResource StyleLabel}" 
                     Content="Пол" Margin="17,22,122,49"
                        Grid.Row="1" Grid.Column="1"/>
-                <ComboBox 
-                   
+                <ComboBox                   
                     Grid.Row="1" Grid.Column="1" x:Name="comboBoxGender" 
                   Margin="16,56,33,17" Height="Auto"
                           DisplayMemberPath="Name"/>
@@ -99,8 +101,8 @@
                 Click="ButtonAdd_Click"  Style="{StaticResource RoundedButton}"  
                          FontSize="24" 
                  Margin="31,33,41,36" Grid.Row="4" Grid.Column="2" />
-                <Button  x:Name="Backk" Content="◀" 
-                    Click="Backk_Click"
+                <Button  x:Name="Back" Content="◀" 
+                    Click="Back_Click"
                          Style="{StaticResource RoundedButton}"  
                     FontSize="40" 
                     Margin="39,33,150,20" Grid.Row="4" />
@@ -108,3 +110,4 @@
         </StackPanel>
     </Grid>
 </Page>
+

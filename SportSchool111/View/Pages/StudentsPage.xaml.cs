@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SportSchool111.AppData;
 using System.ComponentModel;
+using System.Media;
 
 namespace SportSchool111.View.Pages
 {
@@ -87,6 +88,14 @@ namespace SportSchool111.View.Pages
             {
                 NavigationService.GoBack();
             }
+        }
+
+        private void StudentsAdd_Click(object sender, RoutedEventArgs e)
+        {
+            SoundPlayer player = new SoundPlayer(@"C:\Users\Sanya\Downloads\click.wav");
+            player.Load();
+            player.Play();
+            NavigationService.Navigate(new StudentsAddPages());
         }
     }
 }

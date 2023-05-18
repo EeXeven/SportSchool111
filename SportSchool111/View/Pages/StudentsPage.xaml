@@ -39,7 +39,6 @@
 
             <TextBlock FontSize="20" Grid.Column="0" Text="Спортсмен" VerticalAlignment="Center" TextAlignment="Right" Foreground="White" Margin="0,0,389,0" Grid.ColumnSpan="2" />
             <TextBox Grid.Column="1" FontSize="20" x:Name="TboxSearch" TextChanged="TboxSearch_TextChanged" Height="30" BorderThickness="1" BorderBrush="White" Background="Transparent" Foreground="White" Margin="155,0,168,0" VerticalAlignment="Center" />
-
             <ComboBox Grid.Column="3" Width="225" Name="ComboType" SelectionChanged="ComboType_SelectionChanged" DisplayMemberPath="Name" Background="Transparent"  />
         </Grid>
 
@@ -97,5 +96,9 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Button x:Name="StudentsAdd" Content="➕" 
+            Margin="736,10,10,368" Grid.Row="1"
+            FontSize="24" Style="{StaticResource RoundedButton}" 
+            Click="StudentsAdd_Click"/>
     </Grid>
 </Page>

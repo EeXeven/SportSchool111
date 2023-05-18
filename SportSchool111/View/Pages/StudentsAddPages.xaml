@@ -103,7 +103,7 @@
                     Click="Backk_Click"
                          Style="{StaticResource RoundedButton}"  
                     FontSize="40" 
-                    Margin="39,33,150,20" Grid.Row="4" />
+                    Margin="39,33,165,20" Grid.Row="4" />
             </Grid>
         </StackPanel>
     </Grid>

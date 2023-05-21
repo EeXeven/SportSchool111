@@ -29,6 +29,7 @@
           <Property Name="inn" Type="varchar" MaxLength="12" />
           <Property Name="snils" Type="varchar" MaxLength="14" />
           <Property Name="education" Type="varchar" MaxLength="50" />
+          <Property Name="Photo" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="CompetingTeams">
           <Key>
@@ -342,6 +343,7 @@
           <NavigationProperty Name="Sections" Relationship="Self.FK_Coaches_Sections" FromRole="Coaches" ToRole="Sections" />
           <NavigationProperty Name="Sections1" Relationship="Self.FK_Sections_Coaches" FromRole="Coaches" ToRole="Sections" />
           <NavigationProperty Name="Users" Relationship="Self.FK_Users_Coaches" FromRole="Coaches" ToRole="Users" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="CompetingTeams">
           <Key>
@@ -659,6 +661,7 @@
           <EntitySetMapping Name="Coaches">
             <EntityTypeMapping TypeName="SchoolSportsProgramsModel.Coaches">
               <MappingFragment StoreEntitySet="Coaches">
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="coach_id" ColumnName="coach_id" />
                 <ScalarProperty Name="FIO" ColumnName="FIO" />
                 <ScalarProperty Name="gender" ColumnName="gender" />

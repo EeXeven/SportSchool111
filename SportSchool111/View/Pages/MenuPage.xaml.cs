@@ -34,9 +34,9 @@ namespace SportSchool111.View.Pages
 
         private void Students_Click(object sender, RoutedEventArgs e)
         {
-            SoundPlayer player = new SoundPlayer(@"C:\Users\Sanya\Downloads\click.wav");
-            player.Load();
-            player.Play();
+            //SoundPlayer player = new SoundPlayer(@"C:\Users\Sanya\Downloads\click.wav");
+            //player.Load();
+            //player.Play();
             NavigationService.Navigate(new StudentsPage());
            
            
@@ -44,9 +44,9 @@ namespace SportSchool111.View.Pages
 
         private void Coachs_Click(object sender, RoutedEventArgs e)
         {
-            SoundPlayer player = new SoundPlayer(@"C:\Users\Sanya\Downloads\click.wav");
-            player.Load();
-            player.Play();
+            //SoundPlayer player = new SoundPlayer(@"C:\Users\Sanya\Downloads\click.wav");
+            //player.Load();
+            //player.Play();
             NavigationService.Navigate(new TrenersPages());
         }
 

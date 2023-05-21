@@ -37,49 +37,56 @@ namespace SportSchool111.View.Pages
 
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
-            //// Проверка заполнения всех полей 
-            //if (string.IsNullOrWhiteSpace(textBoxFIO.Text) ||
-            //    comboBoxGender.SelectedItem == null ||
-            //    string.IsNullOrWhiteSpace(comboBoxGender.SelectedItem.ToString()) ||
-            //    string.IsNullOrWhiteSpace(textBoxAge.Text) ||
-            //    CbSections.SelectedItem == null ||
-            //    string.IsNullOrWhiteSpace(textBoxPassport.Text) ||
-            //    string.IsNullOrWhiteSpace(textBoxPolicy.Text) ||
-            //    string.IsNullOrWhiteSpace(textBoxINN.Text) ||
-            //    string.IsNullOrWhiteSpace(textBoxSNILS.Text))||
-            //    string.IsNullOrWhiteSpace(textBoxEducation.Text))
-            //{
-            //    MessageBox.Show("Пожалуйста проверьте заполнение всех полей", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            //}
-            //// добавление записи в базу данных
-            //else
-            //{
-            //    OpenFileDialog openFileDialog = new OpenFileDialog();
-            //    openFileDialog.ShowDialog();
+            // Проверка заполнения всех полей 
+            if (string.IsNullOrWhiteSpace(textBoxFIO.Text) ||
+     comboBoxGender.SelectedItem == null ||
+     string.IsNullOrWhiteSpace(comboBoxGender.SelectedItem.ToString()) ||
+     string.IsNullOrWhiteSpace(textBoxAge.Text) ||
+     CbSections.SelectedItem == null ||
+     string.IsNullOrWhiteSpace(textBoxPassport.Text) ||
+     string.IsNullOrWhiteSpace(textBoxPolicy.Text) ||
+     string.IsNullOrWhiteSpace(textBoxINN.Text) ||
+     string.IsNullOrWhiteSpace(textBoxSNILS.Text) ||
+     string.IsNullOrWhiteSpace(textBoxEducation.Text))
+            {
+                MessageBox.Show("Пожалуйста проверьте заполнение всех полей", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
 
-            //    Coaches coaches = new Coaches()
-            //    {
-            //        FIO = textBoxFIO.Text,
-            //        gender = ((Genders)comboBoxGender.SelectedItem).Id,
-            //        age = Convert.ToInt32(textBoxAge.Text),
-            //        Sections = CbSections.SelectedItem as Model.Sections,
-            //        passport = textBoxPassport.Text,
-            //        policy = textBoxPolicy.Text,
-            //        inn = textBoxINN.Text,
-            //        snils = textBoxSNILS.Text,
-            //        education = textBoxEducation.Text,
-            //        //Photo = File.ReadAllBytes(openFileDialog.FileName)
-            //    };
-            //    // Сохранение тренера в базу данных
-            //    AppConnect.BD.Add(Coaches);
-            //    AppConnect.BD.SaveChanges();
-            //    MessageBox.Show("Т успешно добавлен.");
-            //}
+
+            // добавление записи в базу данных
+            else
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.ShowDialog();
+
+                Coaches coaches = new Coaches()
+                {
+                    FIO = textBoxFIO.Text,
+                    gender = ((Genders)comboBoxGender.SelectedItem).Id,
+                    age = Convert.ToInt32(textBoxAge.Text),
+                    Sections = CbSections.SelectedItem as Model.Sections,
+                    passport = textBoxPassport.Text,
+                    policy = textBoxPolicy.Text,
+                    inn = textBoxINN.Text,
+                    snils = textBoxSNILS.Text,
+                    education = textBoxEducation.Text,
+                    Photo = File.ReadAllBytes(openFileDialog.FileName)
+                };
+                // Сохранение тренера в базу данных
+                AppConnect.BD.Coaches.Add(coaches);
+                AppConnect.BD.SaveChanges();
+                MessageBox.Show("Т успешно добавлен.");
+            }
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
+            MenuPage menuPage = new MenuPage();
 
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
         }
     }
 }

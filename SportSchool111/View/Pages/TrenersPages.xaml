@@ -96,5 +96,14 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Button  x:Name="Backk" Content="◀" 
+            Click="Backk_Click"
+            Style="{StaticResource RoundedButton}"  
+            FontSize="40" 
+            Margin="736,67,10,310" Grid.Row="1" />
+        <Button x:Name="CoachessAdd" Content="➕" 
+            Margin="736,10,10,368" Grid.Row="1"
+            FontSize="24" Style="{StaticResource RoundedButton}" 
+            Click="CoachessAdd_Click"/>
     </Grid>
 </Page>

@@ -31,6 +31,7 @@ namespace SportSchool111.Model
         public string inn { get; set; }
         public string snils { get; set; }
         public string education { get; set; }
+        public byte[] Photo { get; set; }
     
         public virtual Genders Genders { get; set; }
         public virtual Sections Sections { get; set; }

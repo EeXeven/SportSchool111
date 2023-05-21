@@ -87,9 +87,9 @@ namespace SportSchool111.View.Pages
         }
         private void Auth(object sender, RoutedEventArgs e)
         {
-            SoundPlayer player = new SoundPlayer(@"C:\Users\Sanya\Downloads\click.wav");
-           player.Load();
-            player.Play();
+           // SoundPlayer player = new SoundPlayer(@"C:\Users\Sanya\Downloads\click.wav");
+           //player.Load();
+           // player.Play();
 
            
 

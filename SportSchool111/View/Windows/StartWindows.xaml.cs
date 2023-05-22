@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SportSchool111.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Media;
@@ -26,10 +27,11 @@ namespace SportSchool111.View.Windows
         {
             InitializeComponent();
 
-            SoundPlayer player = new SoundPlayer(@"C:\Users\Sanya\Desktop\pravila.wav");
-            //SoundPlayer player = new SoundPlayer(@"C:\Users\Sanya\Desktop\Rik.wav");
-            player.Load();
-            player.Play();
+            //SoundPlayer player = new SoundPlayer(@"C:\Users\Sanya\Desktop\pravila.wav");
+            ////SoundPlayer player = new SoundPlayer(@"C:\Users\Sanya\Desktop\Rik.wav");
+            //SoundPlayer player = new SoundPlayer(@"C:\Users\ПРОСТО ВАСЯ\Downloads\Звук - запуска - Windows - 95 - _256 - kbps_.wav");
+            //player.Load();
+            //player.Play();
 
             dispatcherTimer.Tick += new EventHandler(MySplash);
             dispatcherTimer.Interval = new TimeSpan(0, 0, 10);

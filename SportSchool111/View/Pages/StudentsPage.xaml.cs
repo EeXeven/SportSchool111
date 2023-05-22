@@ -28,9 +28,9 @@ namespace SportSchool111.View.Pages
         {
             InitializeComponent();
             LviewStudents.ItemsSource = AppConnect.BD.Students.ToList();
-            
+
             ComboType.DisplayMemberPath = "section_name";
-          
+            LviewStudents.MouseDoubleClick += ListViewItem_MouseDoubleClick;
             ComboType.ItemsSource = AppData.AppConnect.BD.Sections.ToList();
 
         }
@@ -97,5 +97,19 @@ namespace SportSchool111.View.Pages
             //player.Play();
             NavigationService.Navigate(new StudentsAddPages());
         }
+
+        private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            // Получение выбранного студента
+            ListViewItem item = sender as ListViewItem;
+            StudentsApp selectedStudent = item.DataContext as StudentsApp;
+
+            if (selectedStudent != null)
+    {
+        // Отображение карточки студента с данными
+        MessageBox.Show($"Паспорт: {selectedStudent.passport}\nСНИЛС: {selectedStudent.snils}\nИНН: {selectedStudent.inn}\nДата рождения: {selectedStudent.birth_certificate}");
+    }
+        }
     }
 }
+    

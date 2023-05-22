@@ -74,9 +74,9 @@ namespace SportSchool111.View.Pages
 
         private void ExitAcc_Click(object sender, RoutedEventArgs e)
         {
-            SoundPlayer player = new SoundPlayer(@"C:\Users\Sanya\Downloads\click.wav");
-            player.Load();
-            player.Play();
+            //SoundPlayer player = new SoundPlayer(@"C:\Users\Sanya\Downloads\click.wav");
+            //player.Load();
+            //player.Play();
             AuthPage auth = new AuthPage();
 
             if (NavigationService.CanGoBack)

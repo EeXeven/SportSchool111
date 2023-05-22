@@ -87,48 +87,47 @@ namespace SportSchool111.View.Pages
         }
         private void Auth(object sender, RoutedEventArgs e)
         {
-           // SoundPlayer player = new SoundPlayer(@"C:\Users\Sanya\Downloads\click.wav");
-           //player.Load();
-           // player.Play();
+            // SoundPlayer player = new SoundPlayer(@"C:\Users\Sanya\Downloads\click.wav");
+            //player.Load();
+            // player.Play();
 
-           
 
 
             if (!(string.IsNullOrWhiteSpace(AuthLoginTbx.Text) || string.IsNullOrWhiteSpace(AuthPassPbx.Text)))
+            {
+                string awsd = AppData.AppConnect.BD.Users.FirstOrDefault(i => i.username == AuthLoginTbx.Text && i.password == AuthPassPbx.Text)?.user_type;
+                if (awsd != null)
                 {
-                    string awsd = AppData.AppConnect.BD.Users.First(i => i.username == AuthLoginTbx.Text && i.password == AuthPassPbx.Text)?.user_type;
-                    if (awsd != null)
+                    // определение уровня доступа пользователя
+                    switch (awsd)
                     {
-                        // определение уровня доступа пользователя
-                        switch (awsd)
-                        {
-                            case "admin":
-                                // откройте страницу управления пользователями
-                                NavigationService.Navigate(new MenuPage());
-                                //Закрытие Frame Auth
-                                NavigationService.RemoveBackEntry();
-                                MessageBox.Show("Авторизация прошла успешно!");
-                                // Очистка TextBox
-                                AuthLoginTbx.Text = "";
-                                AuthPassPbx.Text = "";
-                                break;
-                            default:
-                                // Восстановление значения TextBox из свойства Tag
-                                AuthLoginTbx.Text = AuthLoginTbx.Tag as string;
-                                AuthPassPbx.Text = AuthPassPbx.Tag as string;
-                                break;
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ошибка авторизации. Пожалуйста, проверьте свои учетные данные и повторите попытку.");
+                        case "admin":
+                            // откройте страницу управления пользователями
+                            NavigationService.Navigate(new MenuPage());
+                            //Закрытие Frame Auth
+                            NavigationService.RemoveBackEntry();
+                            MessageBox.Show("Авторизация прошла успешно!");
+                            // Очистка TextBox
+                            AuthLoginTbx.Text = "";
+                            AuthPassPbx.Text = "";
+                            break;
+                        default:
+                            // Восстановление значения TextBox из свойства Tag
+                            AuthLoginTbx.Text = AuthLoginTbx.Tag as string;
+                            AuthPassPbx.Text = AuthPassPbx.Tag as string;
+                            break;
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Ошибка авторизации. Пожалуйста, заполните все поля");
+                    MessageBox.Show("Неверный логин или пароль", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-             // Создайте экземпляр следующей страницы
+            }
+            else
+            {
+                MessageBox.Show("Пожалуйста, заполните все поля", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            // Создайте экземпляр следующей страницы
             MenuPage nextPage = new MenuPage();
 
             // Вызовите метод для выполнения плавного перехода

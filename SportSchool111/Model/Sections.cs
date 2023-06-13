@@ -19,7 +19,9 @@ namespace SportSchool111.Model
         {
             this.Coaches = new HashSet<Coaches>();
             this.Competitions = new HashSet<Competitions>();
+            this.Groups1 = new HashSet<Groups>();
             this.Students = new HashSet<Students>();
+            this.trainigs = new HashSet<trainigs>();
         }
     
         public int section_id { get; set; }
@@ -27,14 +29,20 @@ namespace SportSchool111.Model
         public Nullable<int> coach_id { get; set; }
         public Nullable<int> student_id { get; set; }
         public Nullable<int> school_id { get; set; }
+        public Nullable<int> GroupID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Coaches> Coaches { get; set; }
         public virtual Coaches Coaches1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Competitions> Competitions { get; set; }
+        public virtual Groups Groups { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Groups> Groups1 { get; set; }
         public virtual Schools Schools { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Students> Students { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<trainigs> trainigs { get; set; }
     }
 }

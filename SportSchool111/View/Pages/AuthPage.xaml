@@ -41,18 +41,19 @@
                         <TextBox GotFocus="AuthLoginTbx_GotFocus" Name="AuthLoginTbx" Text="Login" LostFocus="AuthLoginTbx_LostFocus" Style="{StaticResource LoginTbx}"  Width="496"/>
                     </StackPanel>
                 </Border>
-                <Frame x:Name="mainFrame" />
-                <Border Grid.Row="1" Margin="163,24,161,25" Height="60" CornerRadius="10"  Background="White">
+                <Frame x:Name="mainFrame" Navigated="mainFrame_Navigated" />
+                <Border   Grid.Row="1" Margin="163,24,161,25" Height="60" CornerRadius="10"  Background="White">
                         <StackPanel Orientation="Horizontal">
                             <!--<Image Source="/Resource/Authorization/Password.png" Margin="2"/>-->
-                            <TextBox GotFocus="AuthPassPbx_GotFocus" 
+                            <TextBox 
+                                GotFocus="AuthPassPbx_GotFocus" 
                                  KeyDown="AuthPassPbx_KeyDown"
                                  LostFocus="AuthPassPbx_LostFocus"
                                  Text="Password" Name="AuthPassPbx" Style="{StaticResource LoginTbx}" Width="495"/>
                         </StackPanel>
                     </Border>
 
-                <Button Grid.Row="2" Margin="244,27,267,21" 
+                <Button Grid.Row="2" Margin="281,24,281,24" 
                             Height="60" Style="{StaticResource AuthAccBtn}" 
                             Click="Auth">
                     <Button.Content>

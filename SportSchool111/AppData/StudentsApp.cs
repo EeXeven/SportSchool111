@@ -8,6 +8,7 @@ namespace SportSchool111.AppData
 {
     class StudentsApp
     {
+        public string PassportNumber { get; set; }
         public int student_id { get; set; }
         public string FIO { get; set; }
         public string gender { get; set; }

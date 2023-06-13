@@ -9,11 +9,11 @@
         WindowStartupLocation="CenterScreen" 
         Height="500" Width="800" Style="{StaticResource {x:Type Window}}">
     <Window.Background>
-        <ImageBrush ImageSource="BackGround.png"/>
+        <ImageBrush ImageSource="/Resours/BackGround.png" />
     </Window.Background>
     <Grid >
         <Border  BorderThickness="1" CornerRadius="20">
-        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+            <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
         </Border>
     </Grid>
 </Window>

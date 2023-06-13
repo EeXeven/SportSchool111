@@ -34,7 +34,7 @@
                     FontSize="14" Foreground="#575757"  Grid.Column="1" Margin="205,204,10,0"/>
         <!-- Buttons-->
 
-        <Button x:Name="Tourmants" Content="Турниры" 
+        <Button x:Name="Tourmants" Content="Тренировки" 
                 Margin="128,25,45,147" Grid.Row="2"
                 FontSize="24" Style="{StaticResource RoundedButton}" 
                 Click="Tourmants_Click"/>

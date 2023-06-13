@@ -1,5 +1,6 @@
 ﻿using SportSchool111.AppData;
 using SportSchool111.Model;
+using SportSchool111.View.Windows;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -80,6 +81,19 @@ namespace SportSchool111.View.Pages
         private void CoachessAdd_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AddCoaches());
+        }
+
+        private void LviewStudents_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+            RedCoachesWindows Main = new RedCoachesWindows((Coaches)LviewStudents.SelectedItem);
+            Main.Show();
+            // Получить выбранный тренер или другую информацию об элементе
+
+            // Создать или открыть окно редактирования с передачей выбранного тренера или информации
+            //EditTrainerWindow editWindow = new EditTrainerWindow(selectedTrainer);
+            //editWindow.ShowDialog(); // Показать окно редактирования как модальное
+
         }
     }
 }

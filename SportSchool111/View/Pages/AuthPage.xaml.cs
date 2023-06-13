@@ -149,6 +149,11 @@ namespace SportSchool111.View.Pages
                 Auth(sender, e);
             }
         }
+
+        private void mainFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+
+        }
     }
 }
 

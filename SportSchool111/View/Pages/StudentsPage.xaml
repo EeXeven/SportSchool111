@@ -15,96 +15,99 @@
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="ListView">
-                            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                                 <ItemsPresenter />
                             </ScrollViewer>
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
             </Style>
-        </Page.Resources>
+            </Page.Resources>
 
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0" Margin="20">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
 
-                <TextBlock FontSize="20" Grid.Column="0" Text="Спортсмен" VerticalAlignment="Center" TextAlignment="Right" Foreground="White" Margin="0,0,389,0" Grid.ColumnSpan="2" />
-                <TextBox Grid.Column="1" FontSize="20" x:Name="TboxSearch" TextChanged="TboxSearch_TextChanged" Height="30" BorderThickness="1" BorderBrush="White" Background="Transparent" Foreground="White" Margin="155,0,168,0" VerticalAlignment="Center" />
-                <ComboBox Grid.Column="3" Width="225" Name="ComboType" SelectionChanged="ComboType_SelectionChanged" DisplayMemberPath="Name" Background="Transparent"  />
-            </Grid>
+            <TextBlock FontSize="20" Grid.Column="0" Text="Спортсмен" VerticalAlignment="Center" TextAlignment="Right" Foreground="White" Margin="0,0,389,0" Grid.ColumnSpan="2" />
+            <TextBox Grid.Column="1" FontSize="20" x:Name="TboxSearch" TextChanged="TboxSearch_TextChanged" Height="30" BorderThickness="1" BorderBrush="White" Background="Transparent" Foreground="White" Margin="155,0,168,0" VerticalAlignment="Center" />
+            <ComboBox Grid.Column="3" Width="225" Name="ComboType" SelectionChanged="ComboType_SelectionChanged" DisplayMemberPath="Name" Background="Transparent"  />
+        </Grid>
 
-            <ListView Grid.Row="1" Margin="50" Name="LviewStudents" ScrollBar.Scroll="LwiewStudents_Scroll" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                <ListView.ItemContainerStyle>
+        <ListView Grid.Row="1" Margin="50" Name="LviewStudents"
+                      ScrollBar.Scroll="LviewStudents_Scroll"           
+                      VerticalAlignment="Center" HorizontalAlignment="Center"
+                      Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  MouseDoubleClick="LviewStudents_MouseDoubleClick">
+            <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="Foreground" Value="White" />
-                        <Setter Property="HorizontalAlignment" Value="Center" />
-                        <Setter Property="Margin" Value="20" />
-                        <Setter Property="Width" Value="300" />
-                    <EventSetter Event="MouseDoubleClick"  Handler="ListViewItem_MouseDoubleClick" />
+                    <Setter Property="HorizontalAlignment" Value="Center" />
+                    <Setter Property="Margin" Value="20" />
+                    <Setter Property="Width" Value="300" />
                 </Style>
-                </ListView.ItemContainerStyle>
-                <ListView.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel Orientation="Horizontal" />
-                    </ItemsPanelTemplate>
-                </ListView.ItemsPanel>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
 
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="* " />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
 
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Image Width="100" Height="100" Stretch="Uniform" Margin="5">
-                                    <Image.Source>
-                                        <Binding Path="Photo">
-                                            <Binding.TargetNullValue>
-                                                <ImageSource>/Resours/People.png</ImageSource>
-                                            </Binding.TargetNullValue>
-                                        </Binding>
-                                    </Image.Source>
-                                </Image>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Image Width="100" Height="100" Stretch="Uniform" Margin="5">
+                                <Image.Source>
+                                    <Binding Path="Photo">
+                                        <Binding.TargetNullValue>
+                                            <ImageSource>/Resours/People.png</ImageSource>
+                                        </Binding.TargetNullValue>
+                                    </Binding>
+                                </Image.Source>
+                            </Image>
 
-                                <Image Width="100" Height="100" Stretch="Uniform" Margin="5">
-                                    <Image.Source>
-                                        <Binding Path="SecondPhoto">
-                                            <Binding.TargetNullValue>
-                                                <ImageSource>/Resours/People.png</ImageSource>
-                                            </Binding.TargetNullValue>
-                                        </Binding>
-                                    </Image.Source>
-                                </Image>
-                            </StackPanel>
+                            <Image Width="10" Height="10" Stretch="Uniform" Margin="1">
+                                <Image.Source>
+                                    <Binding Path="SecondPhoto">
+                                        <Binding.TargetNullValue>
+                                            <ImageSource>/Resours/People.png</ImageSource>
+                                        </Binding.TargetNullValue>
+                                    </Binding>
+                                </Image.Source>
+                            </Image>
+                        </StackPanel>
 
-                            <TextBlock Text="{Binding FIO}" Grid.Row="1" VerticalAlignment="Center" TextAlignment="Center" Width="250"
-                                   TextWrapping="Wrap" HorizontalAlignment="    Center" Margin="5" FontSize="16" />
+                        <TextBlock Text="{Binding FIO}" Grid.Row="1" VerticalAlignment="Center" TextAlignment="Center" Width="250"
+                                       TextWrapping="Wrap" HorizontalAlignment="    Center" Margin="5" FontSize="16" />
 
-                            <TextBlock Text="{Binding Age}" Grid.Row="2" Margin="5" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" />
-                        </Grid>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <Button  x:Name="Backk" Content="◀" 
-                        Click="Backk_Click"
-                             Style="{StaticResource RoundedButton}"  
-                        FontSize="40" 
-                        Margin="736,67,10,310" Grid.Row="1" />
-            <Button x:Name="StudentsAdd" Content="➕" 
-                Margin="736,10,10,368" Grid.Row="1"
-                FontSize="24" Style="{StaticResource RoundedButton}" 
-                Click="StudentsAdd_Click"/>
-        </Grid>
+                        <TextBlock Text="{Binding Age}" Grid.Row="2" Margin="5" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button  x:Name="Backk" Content="◀" 
+                            Click="Backk_Click"
+                                 Style="{StaticResource RoundedButton}"  
+                            FontSize="40" 
+                            Margin="736,67,10,310" Grid.Row="1" />
+        <Button x:Name="StudentsAdd" Content="➕" 
+                    Margin="736,10,10,368" Grid.Row="1"
+                    FontSize="24" Style="{StaticResource RoundedButton}" 
+                    Click="StudentsAdd_Click"/>
+    </Grid>
 </Page>

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SportSchool111.AppData
 {
-    class AppConnect
+    internal class AppConnect
     {
         public static SchoolSportsProgramsEntities BD = new SchoolSportsProgramsEntities();
     }

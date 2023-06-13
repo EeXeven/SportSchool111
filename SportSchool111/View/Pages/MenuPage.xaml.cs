@@ -29,6 +29,7 @@ namespace SportSchool111.View.Pages
 
         private void Tourmants_Click(object sender, RoutedEventArgs e)
         {
+            NavigationService.Navigate(new Training());
 
         }
 

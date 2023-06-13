@@ -30,11 +30,13 @@ namespace SportSchool111.Model
         public virtual DbSet<CompetingTeams> CompetingTeams { get; set; }
         public virtual DbSet<Competitions> Competitions { get; set; }
         public virtual DbSet<Genders> Genders { get; set; }
+        public virtual DbSet<Groups> Groups { get; set; }
         public virtual DbSet<Results> Results { get; set; }
         public virtual DbSet<Schools> Schools { get; set; }
         public virtual DbSet<Sections> Sections { get; set; }
         public virtual DbSet<Students> Students { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<trainigs> trainigs { get; set; }
         public virtual DbSet<Users> Users { get; set; }
     }
 }

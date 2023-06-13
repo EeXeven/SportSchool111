@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище SchoolSportsProgramsModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище SchoolSportsProgramsModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Attendance">
           <Key>
             <PropertyRef Name="attendance_id" />
@@ -30,6 +30,7 @@
           <Property Name="snils" Type="varchar" MaxLength="14" />
           <Property Name="education" Type="varchar" MaxLength="50" />
           <Property Name="Photo" Type="varbinary(max)" />
+          <Property Name="GroupID" Type="int" />
         </EntityType>
         <EntityType Name="CompetingTeams">
           <Key>
@@ -55,6 +56,14 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Name" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Groups">
+          <Key>
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Name="GroupID" Type="int" Nullable="false" />
+          <Property Name="GroupName" Type="varchar" MaxLength="255" />
+          <Property Name="SectionID" Type="int" />
         </EntityType>
         <EntityType Name="Results">
           <Key>
@@ -83,6 +92,7 @@
           <Property Name="coach_id" Type="int" />
           <Property Name="student_id" Type="int" />
           <Property Name="school_id" Type="int" />
+          <Property Name="GroupID" Type="int" />
         </EntityType>
         <EntityType Name="Students">
           <Key>
@@ -99,6 +109,7 @@
           <Property Name="snils" Type="varchar" MaxLength="14" />
           <Property Name="Photo" Type="varbinary(max)" />
           <Property Name="birth_certificate" Type="varchar" MaxLength="20" />
+          <Property Name="GroupID" Type="int" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -109,6 +120,17 @@
           <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="trainigs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="day" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="group_id" Type="int" Nullable="false" />
+          <Property Name="cocahe_id" Type="int" Nullable="false" />
+          <Property Name="section_id" Type="int" Nullable="false" />
+          <Property Name="time" Type="time" Precision="7" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -121,6 +143,66 @@
           <Property Name="coach_id" Type="int" />
           <Property Name="student_id" Type="int" />
         </EntityType>
+        <Association Name="FK__Coaches__GroupID__00200768">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+          <End Role="Coaches" Type="Self.Coaches" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="GroupID" />
+            </Principal>
+            <Dependent Role="Coaches">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Coaches__GroupID__06CD04F7">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+          <End Role="Coaches" Type="Self.Coaches" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="GroupID" />
+            </Principal>
+            <Dependent Role="Coaches">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sections__GroupI__04E4BC85">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+          <End Role="Sections" Type="Self.Sections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="GroupID" />
+            </Principal>
+            <Dependent Role="Sections">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Students__GroupI__01142BA1">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="GroupID" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Students__GroupI__05D8E0BE">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="GroupID" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Attendance_Students">
           <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
           <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
@@ -178,6 +260,18 @@
             </Principal>
             <Dependent Role="Competitions">
               <PropertyRef Name="section_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Groups_Sections">
+          <End Role="Sections" Type="Self.Sections" Multiplicity="0..1" />
+          <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sections">
+              <PropertyRef Name="section_id" />
+            </Principal>
+            <Dependent Role="Groups">
+              <PropertyRef Name="SectionID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -241,6 +335,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_trainigs_Coaches">
+          <End Role="Coaches" Type="Self.Coaches" Multiplicity="1" />
+          <End Role="trainigs" Type="Self.trainigs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Coaches">
+              <PropertyRef Name="coach_id" />
+            </Principal>
+            <Dependent Role="trainigs">
+              <PropertyRef Name="cocahe_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_trainigs_Groups">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
+          <End Role="trainigs" Type="Self.trainigs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="GroupID" />
+            </Principal>
+            <Dependent Role="trainigs">
+              <PropertyRef Name="group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_trainigs_Sections">
+          <End Role="Sections" Type="Self.Sections" Multiplicity="1" />
+          <End Role="trainigs" Type="Self.trainigs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sections">
+              <PropertyRef Name="section_id" />
+            </Principal>
+            <Dependent Role="trainigs">
+              <PropertyRef Name="section_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Users_Coaches">
           <End Role="Coaches" Type="Self.Coaches" Multiplicity="0..1" />
           <End Role="Users" Type="Self.Users" Multiplicity="*" />
@@ -259,12 +389,34 @@
           <EntitySet Name="CompetingTeams" EntityType="Self.CompetingTeams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Competitions" EntityType="Self.Competitions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Genders" EntityType="Self.Genders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Results" EntityType="Self.Results" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Schools" EntityType="Self.Schools" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sections" EntityType="Self.Sections" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="trainigs" EntityType="Self.trainigs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Coaches__GroupID__00200768" Association="Self.FK__Coaches__GroupID__00200768">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Coaches" EntitySet="Coaches" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Coaches__GroupID__06CD04F7" Association="Self.FK__Coaches__GroupID__06CD04F7">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Coaches" EntitySet="Coaches" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sections__GroupI__04E4BC85" Association="Self.FK__Sections__GroupI__04E4BC85">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Sections" EntitySet="Sections" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Students__GroupI__01142BA1" Association="Self.FK__Students__GroupI__01142BA1">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Students__GroupI__05D8E0BE" Association="Self.FK__Students__GroupI__05D8E0BE">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
           <AssociationSet Name="FK_Attendance_Students" Association="Self.FK_Attendance_Students">
             <End Role="Students" EntitySet="Students" />
             <End Role="Attendance" EntitySet="Attendance" />
@@ -284,6 +436,10 @@
           <AssociationSet Name="FK_Competitions_Sections" Association="Self.FK_Competitions_Sections">
             <End Role="Sections" EntitySet="Sections" />
             <End Role="Competitions" EntitySet="Competitions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Groups_Sections" Association="Self.FK_Groups_Sections">
+            <End Role="Sections" EntitySet="Sections" />
+            <End Role="Groups" EntitySet="Groups" />
           </AssociationSet>
           <AssociationSet Name="FK_Results_Competitions" Association="Self.FK_Results_Competitions">
             <End Role="Competitions" EntitySet="Competitions" />
@@ -305,12 +461,25 @@
             <End Role="Sections" EntitySet="Sections" />
             <End Role="Students" EntitySet="Students" />
           </AssociationSet>
+          <AssociationSet Name="FK_trainigs_Coaches" Association="Self.FK_trainigs_Coaches">
+            <End Role="Coaches" EntitySet="Coaches" />
+            <End Role="trainigs" EntitySet="trainigs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_trainigs_Groups" Association="Self.FK_trainigs_Groups">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="trainigs" EntitySet="trainigs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_trainigs_Sections" Association="Self.FK_trainigs_Sections">
+            <End Role="Sections" EntitySet="Sections" />
+            <End Role="trainigs" EntitySet="trainigs" />
+          </AssociationSet>
           <AssociationSet Name="FK_Users_Coaches" Association="Self.FK_Users_Coaches">
             <End Role="Coaches" EntitySet="Coaches" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SchoolSportsProgramsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -339,11 +508,15 @@
           <Property Name="inn" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="snils" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
           <Property Name="education" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="GroupID" Type="Int32" />
+          <NavigationProperty Name="Groups" Relationship="Self.FK__Coaches__GroupID__00200768" FromRole="Coaches" ToRole="Groups" />
+          <NavigationProperty Name="Groups1" Relationship="Self.FK__Coaches__GroupID__06CD04F7" FromRole="Coaches" ToRole="Groups" />
           <NavigationProperty Name="Genders" Relationship="Self.FK_Coaches_Genders" FromRole="Coaches" ToRole="Genders" />
           <NavigationProperty Name="Sections" Relationship="Self.FK_Coaches_Sections" FromRole="Coaches" ToRole="Sections" />
           <NavigationProperty Name="Sections1" Relationship="Self.FK_Sections_Coaches" FromRole="Coaches" ToRole="Sections" />
+          <NavigationProperty Name="trainigs" Relationship="Self.FK_trainigs_Coaches" FromRole="Coaches" ToRole="trainigs" />
           <NavigationProperty Name="Users" Relationship="Self.FK_Users_Coaches" FromRole="Coaches" ToRole="Users" />
-          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="CompetingTeams">
           <Key>
@@ -375,6 +548,21 @@
           <NavigationProperty Name="Coaches" Relationship="Self.FK_Coaches_Genders" FromRole="Genders" ToRole="Coaches" />
           <NavigationProperty Name="Students" Relationship="Self.FK_Students_Genders" FromRole="Genders" ToRole="Students" />
         </EntityType>
+        <EntityType Name="Groups">
+          <Key>
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Name="GroupID" Type="Int32" Nullable="false" />
+          <Property Name="GroupName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SectionID" Type="Int32" />
+          <NavigationProperty Name="Coaches" Relationship="Self.FK__Coaches__GroupID__00200768" FromRole="Groups" ToRole="Coaches" />
+          <NavigationProperty Name="Coaches1" Relationship="Self.FK__Coaches__GroupID__06CD04F7" FromRole="Groups" ToRole="Coaches" />
+          <NavigationProperty Name="Sections" Relationship="Self.FK__Sections__GroupI__04E4BC85" FromRole="Groups" ToRole="Sections" />
+          <NavigationProperty Name="Students" Relationship="Self.FK__Students__GroupI__01142BA1" FromRole="Groups" ToRole="Students" />
+          <NavigationProperty Name="Students1" Relationship="Self.FK__Students__GroupI__05D8E0BE" FromRole="Groups" ToRole="Students" />
+          <NavigationProperty Name="Sections1" Relationship="Self.FK_Groups_Sections" FromRole="Groups" ToRole="Sections" />
+          <NavigationProperty Name="trainigs" Relationship="Self.FK_trainigs_Groups" FromRole="Groups" ToRole="trainigs" />
+        </EntityType>
         <EntityType Name="Results">
           <Key>
             <PropertyRef Name="result_id" />
@@ -405,11 +593,15 @@
           <Property Name="coach_id" Type="Int32" />
           <Property Name="student_id" Type="Int32" />
           <Property Name="school_id" Type="Int32" />
+          <Property Name="GroupID" Type="Int32" />
           <NavigationProperty Name="Coaches" Relationship="Self.FK_Coaches_Sections" FromRole="Sections" ToRole="Coaches" />
           <NavigationProperty Name="Coaches1" Relationship="Self.FK_Sections_Coaches" FromRole="Sections" ToRole="Coaches" />
           <NavigationProperty Name="Competitions" Relationship="Self.FK_Competitions_Sections" FromRole="Sections" ToRole="Competitions" />
+          <NavigationProperty Name="Groups" Relationship="Self.FK__Sections__GroupI__04E4BC85" FromRole="Sections" ToRole="Groups" />
+          <NavigationProperty Name="Groups1" Relationship="Self.FK_Groups_Sections" FromRole="Sections" ToRole="Groups" />
           <NavigationProperty Name="Schools" Relationship="Self.FK_Sections_Schools" FromRole="Sections" ToRole="Schools" />
           <NavigationProperty Name="Students" Relationship="Self.FK_Students_Sections" FromRole="Sections" ToRole="Students" />
+          <NavigationProperty Name="trainigs" Relationship="Self.FK_trainigs_Sections" FromRole="Sections" ToRole="trainigs" />
         </EntityType>
         <EntityType Name="Students">
           <Key>
@@ -426,8 +618,11 @@
           <Property Name="snils" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="birth_certificate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="GroupID" Type="Int32" />
           <NavigationProperty Name="Attendance" Relationship="Self.FK_Attendance_Students" FromRole="Students" ToRole="Attendance" />
           <NavigationProperty Name="Genders" Relationship="Self.FK_Students_Genders" FromRole="Students" ToRole="Genders" />
+          <NavigationProperty Name="Groups" Relationship="Self.FK__Students__GroupI__01142BA1" FromRole="Students" ToRole="Groups" />
+          <NavigationProperty Name="Groups1" Relationship="Self.FK__Students__GroupI__05D8E0BE" FromRole="Students" ToRole="Groups" />
           <NavigationProperty Name="Sections" Relationship="Self.FK_Students_Sections" FromRole="Students" ToRole="Sections" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -439,6 +634,20 @@
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="trainigs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="day" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="group_id" Type="Int32" Nullable="false" />
+          <Property Name="cocahe_id" Type="Int32" Nullable="false" />
+          <Property Name="section_id" Type="Int32" Nullable="false" />
+          <Property Name="time" Type="Time" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Coaches" Relationship="Self.FK_trainigs_Coaches" FromRole="trainigs" ToRole="Coaches" />
+          <NavigationProperty Name="Groups" Relationship="Self.FK_trainigs_Groups" FromRole="trainigs" ToRole="Groups" />
+          <NavigationProperty Name="Sections" Relationship="Self.FK_trainigs_Sections" FromRole="trainigs" ToRole="Sections" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -461,6 +670,30 @@
             </Principal>
             <Dependent Role="Attendance">
               <PropertyRef Name="student_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Coaches__GroupID__00200768">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+          <End Role="Coaches" Type="Self.Coaches" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="GroupID" />
+            </Principal>
+            <Dependent Role="Coaches">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Coaches__GroupID__06CD04F7">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+          <End Role="Coaches" Type="Self.Coaches" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="GroupID" />
+            </Principal>
+            <Dependent Role="Coaches">
+              <PropertyRef Name="GroupID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -497,6 +730,18 @@
             </Principal>
             <Dependent Role="Sections">
               <PropertyRef Name="coach_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_trainigs_Coaches">
+          <End Role="Coaches" Type="Self.Coaches" Multiplicity="1" />
+          <End Role="trainigs" Type="Self.trainigs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Coaches">
+              <PropertyRef Name="coach_id" />
+            </Principal>
+            <Dependent Role="trainigs">
+              <PropertyRef Name="cocahe_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -560,6 +805,66 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Sections__GroupI__04E4BC85">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+          <End Role="Sections" Type="Self.Sections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="GroupID" />
+            </Principal>
+            <Dependent Role="Sections">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Students__GroupI__01142BA1">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="GroupID" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Students__GroupI__05D8E0BE">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="GroupID" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Groups_Sections">
+          <End Role="Sections" Type="Self.Sections" Multiplicity="0..1" />
+          <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sections">
+              <PropertyRef Name="section_id" />
+            </Principal>
+            <Dependent Role="Groups">
+              <PropertyRef Name="SectionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_trainigs_Groups">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
+          <End Role="trainigs" Type="Self.trainigs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="GroupID" />
+            </Principal>
+            <Dependent Role="trainigs">
+              <PropertyRef Name="group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Sections_Schools">
           <End Role="Schools" Type="Self.Schools" Multiplicity="0..1" />
           <End Role="Sections" Type="Self.Sections" Multiplicity="*" />
@@ -584,21 +889,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_trainigs_Sections">
+          <End Role="Sections" Type="Self.Sections" Multiplicity="1" />
+          <End Role="trainigs" Type="Self.trainigs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sections">
+              <PropertyRef Name="section_id" />
+            </Principal>
+            <Dependent Role="trainigs">
+              <PropertyRef Name="section_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="SchoolSportsProgramsEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Attendance" EntityType="Self.Attendance" />
           <EntitySet Name="Coaches" EntityType="Self.Coaches" />
           <EntitySet Name="CompetingTeams" EntityType="Self.CompetingTeams" />
           <EntitySet Name="Competitions" EntityType="Self.Competitions" />
           <EntitySet Name="Genders" EntityType="Self.Genders" />
+          <EntitySet Name="Groups" EntityType="Self.Groups" />
           <EntitySet Name="Results" EntityType="Self.Results" />
           <EntitySet Name="Schools" EntityType="Self.Schools" />
           <EntitySet Name="Sections" EntityType="Self.Sections" />
           <EntitySet Name="Students" EntityType="Self.Students" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="trainigs" EntityType="Self.trainigs" />
           <EntitySet Name="Users" EntityType="Self.Users" />
           <AssociationSet Name="FK_Attendance_Students" Association="Self.FK_Attendance_Students">
             <End Role="Students" EntitySet="Students" />
             <End Role="Attendance" EntitySet="Attendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Coaches__GroupID__00200768" Association="Self.FK__Coaches__GroupID__00200768">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Coaches" EntitySet="Coaches" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Coaches__GroupID__06CD04F7" Association="Self.FK__Coaches__GroupID__06CD04F7">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Coaches" EntitySet="Coaches" />
           </AssociationSet>
           <AssociationSet Name="FK_Coaches_Genders" Association="Self.FK_Coaches_Genders">
             <End Role="Genders" EntitySet="Genders" />
@@ -611,6 +938,10 @@
           <AssociationSet Name="FK_Sections_Coaches" Association="Self.FK_Sections_Coaches">
             <End Role="Coaches" EntitySet="Coaches" />
             <End Role="Sections" EntitySet="Sections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_trainigs_Coaches" Association="Self.FK_trainigs_Coaches">
+            <End Role="Coaches" EntitySet="Coaches" />
+            <End Role="trainigs" EntitySet="trainigs" />
           </AssociationSet>
           <AssociationSet Name="FK_Users_Coaches" Association="Self.FK_Users_Coaches">
             <End Role="Coaches" EntitySet="Coaches" />
@@ -632,6 +963,26 @@
             <End Role="Genders" EntitySet="Genders" />
             <End Role="Students" EntitySet="Students" />
           </AssociationSet>
+          <AssociationSet Name="FK__Sections__GroupI__04E4BC85" Association="Self.FK__Sections__GroupI__04E4BC85">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Sections" EntitySet="Sections" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Students__GroupI__01142BA1" Association="Self.FK__Students__GroupI__01142BA1">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Students__GroupI__05D8E0BE" Association="Self.FK__Students__GroupI__05D8E0BE">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Groups_Sections" Association="Self.FK_Groups_Sections">
+            <End Role="Sections" EntitySet="Sections" />
+            <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_trainigs_Groups" Association="Self.FK_trainigs_Groups">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="trainigs" EntitySet="trainigs" />
+          </AssociationSet>
           <AssociationSet Name="FK_Sections_Schools" Association="Self.FK_Sections_Schools">
             <End Role="Schools" EntitySet="Schools" />
             <End Role="Sections" EntitySet="Sections" />
@@ -639,6 +990,10 @@
           <AssociationSet Name="FK_Students_Sections" Association="Self.FK_Students_Sections">
             <End Role="Sections" EntitySet="Sections" />
             <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_trainigs_Sections" Association="Self.FK_trainigs_Sections">
+            <End Role="Sections" EntitySet="Sections" />
+            <End Role="trainigs" EntitySet="trainigs" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -661,7 +1016,6 @@
           <EntitySetMapping Name="Coaches">
             <EntityTypeMapping TypeName="SchoolSportsProgramsModel.Coaches">
               <MappingFragment StoreEntitySet="Coaches">
-                <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="coach_id" ColumnName="coach_id" />
                 <ScalarProperty Name="FIO" ColumnName="FIO" />
                 <ScalarProperty Name="gender" ColumnName="gender" />
@@ -672,6 +1026,8 @@
                 <ScalarProperty Name="inn" ColumnName="inn" />
                 <ScalarProperty Name="snils" ColumnName="snils" />
                 <ScalarProperty Name="education" ColumnName="education" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -703,6 +1059,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Groups">
+            <EntityTypeMapping TypeName="SchoolSportsProgramsModel.Groups">
+              <MappingFragment StoreEntitySet="Groups">
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Results">
             <EntityTypeMapping TypeName="SchoolSportsProgramsModel.Results">
               <MappingFragment StoreEntitySet="Results">
@@ -731,6 +1096,7 @@
                 <ScalarProperty Name="coach_id" ColumnName="coach_id" />
                 <ScalarProperty Name="student_id" ColumnName="student_id" />
                 <ScalarProperty Name="school_id" ColumnName="school_id" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -748,6 +1114,7 @@
                 <ScalarProperty Name="snils" ColumnName="snils" />
                 <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="birth_certificate" ColumnName="birth_certificate" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -759,6 +1126,18 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="trainigs">
+            <EntityTypeMapping TypeName="SchoolSportsProgramsModel.trainigs">
+              <MappingFragment StoreEntitySet="trainigs">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="day" ColumnName="day" />
+                <ScalarProperty Name="group_id" ColumnName="group_id" />
+                <ScalarProperty Name="cocahe_id" ColumnName="cocahe_id" />
+                <ScalarProperty Name="section_id" ColumnName="section_id" />
+                <ScalarProperty Name="time" ColumnName="time" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

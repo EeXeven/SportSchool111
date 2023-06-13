@@ -31,10 +31,13 @@ namespace SportSchool111.Model
         public string snils { get; set; }
         public byte[] Photo { get; set; }
         public string birth_certificate { get; set; }
+        public Nullable<int> GroupID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Attendance> Attendance { get; set; }
         public virtual Genders Genders { get; set; }
+        public virtual Groups Groups { get; set; }
+        public virtual Groups Groups1 { get; set; }
         public virtual Sections Sections { get; set; }
     }
 }

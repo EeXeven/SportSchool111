@@ -14,7 +14,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ListView">
-                        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                             <ItemsPresenter />
                         </ScrollViewer>
                     </ControlTemplate>
@@ -42,7 +42,7 @@
             <ComboBox Grid.Column="3" Width="225" Name="ComboType" SelectionChanged="ComboType_SelectionChanged"  DisplayMemberPath="Name" Background="Transparent"  />
         </Grid>
 
-        <ListView Grid.Row="1" Margin="50" Name="LviewStudents" ScrollBar.Scroll="LviewStudents_Scroll"  VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <ListView MouseDoubleClick="LviewStudents_MouseDoubleClick"  Grid.Row="1" Margin="50" Name="LviewStudents" ScrollBar.Scroll="LviewStudents_Scroll"  VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="Foreground" Value="White" />
@@ -77,7 +77,7 @@
                                 </Image.Source>
                             </Image>
 
-                            <Image Width="100" Height="100" Stretch="Uniform" Margin="5">
+                            <Image Width="10" Height="10" Stretch="Uniform" Margin="1">
                                 <Image.Source>
                                     <Binding Path="SecondPhoto">
                                         <Binding.TargetNullValue>

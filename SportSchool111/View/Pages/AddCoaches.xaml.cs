@@ -27,7 +27,6 @@ namespace SportSchool111.View.Pages
         public AddCoaches()
         {
             InitializeComponent();
-            InitializeComponent();
             comboBoxGender.DisplayMemberPath = "Name";
             comboBoxGender.ItemsSource = AppConnect.BD.Genders.ToList();
 
@@ -75,7 +74,7 @@ namespace SportSchool111.View.Pages
                 // Сохранение тренера в базу данных
                 AppConnect.BD.Coaches.Add(coaches);
                 AppConnect.BD.SaveChanges();
-                MessageBox.Show("Т успешно добавлен.");
+                MessageBox.Show("Тренер успешно добавлен.");
             }
         }
 

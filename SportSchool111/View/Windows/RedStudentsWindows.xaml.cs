@@ -1,4 +1,5 @@
 ﻿using SportSchool111.Model;
+using SportSchool111.View.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,16 +40,21 @@ namespace SportSchool111.View.Windows
         private void Redact_Click(object sender, RoutedEventArgs e)
         {
             AppData.AppConnect.BD.SaveChanges();
+            MessageBox.Show("Редактирование успешно сохранено.");
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
+            StudentsPage studentsPages = new StudentsPage();
+            MessageBox.Show("Изменения сохранены.");
+            this.Close();
         }
 
         private void remove_click(object sender, RoutedEventArgs e)
         {
             AppData.AppConnect.BD.Students.Remove(DataContext as Students);
-            AppData.AppConnect.BD.SaveChanges();
+                AppData.AppConnect.BD.SaveChanges();
+            MessageBox.Show("Архивирование успешно выполнено.");
         }
     }
 }

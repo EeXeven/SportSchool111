@@ -45,5 +45,15 @@ namespace SportSchool111.View.Pages
                 DataContext = tr;
             }
         }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            MenuPage menuPage = new MenuPage();
+
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
+        }
     }
 }

@@ -82,7 +82,7 @@
                           Margin="18,63,31,12" Height="Auto" Name="textBoxSNILS" />
                 <!--TbBirthCertif-->
                 <Label Style="{StaticResource StyleLabel}" 
-                    Content="Свиделеьство о рождении" Margin="18,32,10,41"
+                    Content="Свидетельство о рождении" Margin="18,32,10,41"
                        Grid.Row="3" Grid.Column="2"/>
                 <TextBox Grid.Row="3" Grid.Column="2"   
                          Style="{StaticResource RoundedTextBox}"

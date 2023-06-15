@@ -88,7 +88,7 @@
                           Margin="18,63,31,12" Height="Auto" Name="textBoxSNILS" />
                     <!--TbBirthCertif-->
                     <Label Style="{StaticResource StyleLabel}" 
-                    Content="Свиделеьство о рождении" Margin="18,32,10,41"
+                    Content="Свидетельство о рождении" Margin="18,32,10,41"
                        Grid.Row="3" Grid.Column="2"/>
                     <TextBox Grid.Row="3" Grid.Column="2"   
                          Style="{StaticResource RoundedTextBox}" Text="{Binding birth_certificate}"
@@ -105,7 +105,7 @@
                 Style="{StaticResource RoundedButton}"  
                          FontSize="24" 
                  Margin="31,33,41,33" Grid.Row="4" Grid.Column="2" Click="Redact_Click" />
-                    <Button  x:Name="remove" Content="Удалить" 
+                    <Button  x:Name="remove" Content="В Архив" 
                 Style="{StaticResource RoundedButton}"  
                          FontSize="24" 
                  Margin="29,33,42,33" Grid.Row="4" Grid.Column="1" Click="remove_click" />

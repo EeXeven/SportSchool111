@@ -273,7 +273,8 @@
                     <Label Style="{StaticResource StyleLabel}" 
                     Content="Пол" Margin="17,22,122,49"
                        Grid.Row="1" Grid.Column="1"/>
-                    <ComboBox Template="{DynamicResource ComboBoxTemplate1}" 
+                    <ComboBox 
+                        Style="{StaticResource RoundedComboBox}" Template="{DynamicResource ComboBoxTemplate1}" 
                   SelectedItem="{Binding Genders}" DisplayMemberPath="Name"
                     Grid.Row="1" Grid.Column="1" x:Name="comboBoxGender" 
                   Margin="16,56,33,17" Height="Auto"
@@ -283,7 +284,7 @@
                   Style="{StaticResource RoundedButton}"  
                          FontSize="24" 
                  Margin="31,33,41,33" Grid.Row="4" Grid.Column="2" Click="Redact_Click" />
-                    <Button  x:Name="remove" Content="Удалить" 
+                    <Button  x:Name="remove" Content="В Архив" 
                   Style="{StaticResource RoundedButton}"  
                          FontSize="24" 
                  Margin="29,33,42,33" Grid.Row="4" Grid.Column="1" Click="remove_Click" />
